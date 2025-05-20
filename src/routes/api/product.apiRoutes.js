@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
 const path = require("path");
+const { getUsers } = require("../../controllers/api/user.apiControllers.js");
+
+//Endpoint de usuarios
+router.get("/", getUsers);
+
 const {
   show,
   create,

@@ -64,11 +64,13 @@ app
 
   .use("/", userRouter)
 
-  .use("/", adminRouter)
-
-  .use(function (req, res) {
-    res.status(404).render("not-found.ejs", { title: "No encontrado" });
-  });
+  .use("/", adminRouter);
+app.use(function (req, res) {
+  res.status(404).render("not-found.ejs", { title: "No encontrado" });
+});
+//Api Routes
+const usersApiRoutes = require("./routes/api/user.apiRoutes.js");
+//const productsApiRoutes = require("./routes/api/proudct.apiRoutes.js")
 
 app.listen(PORT, async () => {
   //sqlite3
