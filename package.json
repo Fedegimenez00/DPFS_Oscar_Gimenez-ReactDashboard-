@@ -1,0 +1,28 @@
+{
+  "name": "dpfs_oscar_gimenez",
+  "version": "1.0.0",
+  "description": "Mi nombre es Oscar Federico Gimenez, tengo 25 años y me gusta el mundo de la tecnología y la programación. Me fascina la infinidad de cosas que se pueden crear en código.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.14.0",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.4.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}

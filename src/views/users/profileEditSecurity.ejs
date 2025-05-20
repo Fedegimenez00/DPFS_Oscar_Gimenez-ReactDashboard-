@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="profileEdit--main">
+
+        <!-- Sección del Menu del perfil de usuario-->
+        
+        <section class="profileUserMenu--section">
+        <div class="profileUserMenu--sectionContainer">
+            <div class="profileMenu--imageContainer">
+            <img src="/database/images/users/<%=user.avatar %>" alt="Avatar de <%= user.name%>">
+            <h2><%= user.name %></h2>
+        </div>
+        
+        <div class="profileUserMenu--options">
+        
+        <a href="/profile/<%=user.id %>/edit"><h3>Perfil</h3></a>
+        
+      <div class="profileUserMenu--selected">  <a href="/profile/<%=user.id %>/edit-security"><h3>Seguridad de Cuenta</h3></a> </div> 
+        
+        <a href="/profile/<%=user.id %>/my-courses"><h3>Cursos (WIP)</h3></a>
+        
+        <a href="/profile/<%=user.id %>/create"><h3>Creación de Cursos</h3></a>
+        
+        <a href="/profile/<%=user.id %>/delete-account"><h3>Cerrar Cuenta</h3></a>
+        </div>
+        
+        </div>
+        </section>
+    <section class="profileEditSecurity--section">
+        <div class="profileEdit--sectionContainer">
+        <div class="profileEdit__title"><h1>Seguridad de Cuenta</h1></div>
+    
+    <form class="profileEdit__forms" action='/profile/<%= user.id %>/edit-security?_method=PUT' method="POST">
+
+        
+        <div class="profileEditSecurity__formsContainer">
+            <div class="EditSecurity--divisionContainer">
+            <div class="profileEdit--inputContainer">
+                <h3>Usuario:</h3>
+                <div class="profileEdit--inputContainer__inside">
+                <label for="name"></label>
+                <input type="text" name="name" id="name" placeholder="Nombre de Usuario" value="<%= user.name %>"> </input>
+            </div>
+            </div>
+             <div class="profileEdit--inputContainer">
+                <h3>Email:</h3>
+                <div class="profileEdit--inputContainer__inside">
+                <label for="email"></label>
+                <input type="text" name="email" id="email" placeholder="Correo electrónico" value="<%= user.email %>"> </input>
+            </div>
+            </div>
+</div>
+         <hr class="profileEdit--divisorLine">
+
+         <div class="EditSecurity--divisionContainer">
+         <div class="profileEdit--inputContainer">
+            <h3>Cambiar Contraseña:</h3>
+            <div class="profileEdit--inputContainer__inside">
+            <label for="password"></label>
+            <input type="password" name="password" id="password" placeholder="Ingresa la nueva contraseña"> </input>
+        </div>
+        </div>
+        <div class="profileEdit--inputContainer">
+            <div class="profileEdit--inputContainer__inside">
+            <label for="password2"></label>
+            <input type="password" name="password2" id="password2" placeholder="Reingresa la nueva contraseña"> </input>
+            </div>
+        </div>
+         
+ <div class="profileEdit__buttonContainer">
+    <button class="profileEdit__button" type="submit">Guardar</button>
+    </div>
+</div>
+    </div>
+
+   
+
+    </form>
+</div>
+    </section>
+</main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

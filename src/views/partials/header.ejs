@@ -1,0 +1,210 @@
+<header class="header--body">
+    <div class="header--body_card">
+    
+        <% if (!locals.isLogged){ %> 
+            <button id="burgerMenu" class="burger-menu"><i class="fa-solid fa-bars"></i></button> 
+            <a class="logo--imageMobile" href="/">
+            <img src="/imgs/pageLogo/Logo_Completo.png" alt="ZeroTrust Logo"></a>
+            
+            <nav class="header--navbarMobileGuest" id="nav">
+                <ul class="header--navbar__hub" id="header--navbar__hub">     
+            
+                    <li><a href="/">Inicio</a></li>
+                    <li> <a href="/products">Cursos</a></li>
+                    <li>Recursos</li>
+                    <li class="header--navbar__signupMobile"><a href="/login">Iniciar Sesión</a></li>
+                </ul>
+       </nav>
+        <div class="leftHeaderGuest--container">
+            
+        
+    
+            <%  } %> 
+    
+ 
+    <% if (locals.isLogged){ %> 
+                  <button id="burgerMenu" class="burger-menu"><i class="fa-solid fa-bars"></i></button> 
+  <div class="leftHeader--container">
+          <a class="logo--imageMobile" href="/">
+            <img src="/imgs/pageLogo/Logo_Completo.png" alt="ZeroTrust Logo"></a>
+            
+            <div class="bellNotif--pending">
+                <a href="#"><i class="fa-solid fa-bell"></i></a>
+            <p>1</p>
+            </div>
+            <% } %> 
+
+
+     <nav class="header--navbar" id="nav">
+        
+        <% if (locals.isLogged){ %> 
+        <div class="userMenu--box">
+            <img src="/database/images/users/<%=user.avatar %>" alt="Avatar de <%= user.name%>">
+            <div class="userMenu--box__text">
+                <div class="userMenu--box__textInside">
+            <p>Hola, <%= user.username %></p>
+            <small>Bienvenido de vuelta!</small>
+            </div>
+           <button class="userButton" id="userButton"> <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        </div>
+</div><a class="logo--imageDesktop" href="/">
+        <img src="/imgs/pageLogo/Logo_Completo.png" alt="ZeroTrust Logo"></a>
+        
+        <ul class="header--navbar__hub" id="header--navbar__hub">     
+            
+             <li><a href="/">Inicio</a></li>
+             <li> <a href="/products">Cursos</a></li>
+             <li>Recursos</li>
+             
+         </ul>
+
+         <nav class="userMenu" id="userMenu">
+
+            <ul class="userMenu--list">
+            <div class="returnButton--container">
+            <button type="button" class="returnMenuButton" id="returnMenuButton">Volver al menú principal</button>
+            </div>
+            <hr class="userMenu--list__line">
+
+            
+
+            <li><a href="/profile/<%=user.id %>/">Mi perfil</a></li>
+            <hr class="userMenu--list__line">
+            <li><a href="/profile/<%=user.id %>/my-courses">Mis Cursos</a></li>
+            <li><a href="/profile/<%=user.id %>/create">Creación de Cursos</a></li>
+
+            <li><a href="/profile/<%=user.id %>/edit">Configuración</a></li>
+                                    <hr class="userMenu--list__line">
+            <li><a href="/profile/<%=user.id %>/edit-security">Seguridad de Cuenta</a></li>
+
+            <li><a href="/profile/<%=user.id %>/delete-account">Eliminación de Cuenta</a></li>
+            <hr class="userMenu--list__line">
+            <li><a href="/logout">Cerrar sesión</a></li>
+        </ul>
+        </nav>
+         <% } else { %>
+            <a class="logo--imageDesktop" href="/">
+                <img src="/imgs/pageLogo/Logo_Completo.png" alt="ZeroTrust Logo"></a><div class="leftHeader--container">
+                
+            
+            <ul class="header--navbar__hub" id="header--navbar__hub">     
+            
+                <li><a href="/">Inicio</a></li>
+                <li> <a href="/products">Cursos</a></li>
+                <li>Recursos</li>
+                <li class="header--navbar__signupMobile"><a href="/login">Iniciar Sesión</a></li>
+            </ul>
+        </div>
+        
+        
+          <% }  %>
+        </div>
+  
+          <div class="rightHeader--container">
+         
+            <% if (locals.isAdmin) { %>
+                <li><a href="/admin">Administrador</a></li>
+                <li><a href="/logout">Cerrar sesión</a></li>
+           <% } else if (locals.isLogged) {%>
+            
+           <ul class="header--navbar__signup" style="gap: 10px;">
+        <% } else { %>
+            
+            <li class="desktopHeader__signupContainer"><a href="/login">Iniciar Sesión</a></li>
+          <% } %>
+         </ul>
+        
+     </nav>
+
+ <% if (locals.isAdmin) { %>
+
+<% } else if (locals.isLogged) {%>
+    <div class="bellNotif--pending">
+        <a href="#"><i class="fa-solid fa-bell"></i></a>
+    <p>1</p>
+    </div>
+
+    <div class="userDestkopMenu--container">
+<span class="userHeaderMenu--desktopContainer">
+    <div class="userHeaderMenu--desktopContainerInside">             
+    <p><%= user.name %></p>
+    <button class="userMenuCollapsable" data-target="userMenuDesktop" type="button"><i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <img src="/database/images/users/<%=user.avatar %>" alt="Avatar de <%= user.name%>">
+</span>
+
+<nav class="userMenuDesktop" id="userMenuDesktop">
+
+    <ul class="userMenu--listDesktop">
+    <div class="returnButton--container">
+    <button type="button" class="returnMenuButton" id="returnMenuButton">Volver al menú principal</button>
+    </div>
+    <hr class="userMenu--list__line">
+
+    
+
+    <li><a href="/profile/<%=user.id %>/">Mi perfil</a></li>
+    <hr class="userMenu--list__line">
+    <li><a href="/profile/<%=user.id %>/my-courses">Mis Cursos</a></li>
+    <li><a href="/profile/<%=user.id %>/create">Creación de Cursos</a></li>
+    <li><a href="/profile/<%=user.id %>/edit">Configuración</a></li>
+    <hr class="userMenu--list__line">
+    <li><a href="/logout">Cerrar sesión</a></li>
+</ul>
+</nav>
+</div>
+<% } else { %>
+
+ <% } %>   
+
+<div class="cart--pending">
+    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+<p>1</p>
+</div>
+
+
+
+
+</div>
+</div>
+
+ </header>
+
+ <!--
+Legacy Header:
+
+<header class="header--body"><div class="header--body_card">
+    <button id="burgerMenu" class="burger-menu"><i class="fa-solid fa-bars"></i></button> 
+     <nav class="header--navbar" id="nav">
+         <ul class="header--navbar__hub"> 
+             <li><a href="/">Inicio</a></li>
+             <li> <a href="/products">Cursos</a></li>
+             <li>Recursos</li>
+             
+         </ul>         
+         <ul class="header--navbar__signup" style="gap: 10px;">
+            <%// if (locals.isAdmin) { %>
+                <li><a href="/admin">Administrador</a></li>
+                <li><a href="/logout">Cerrar sesión</a></li>
+           <%// } else if (locals.isLogged) { %>
+            <li><a href="/profile">Perfil de Usuario</a></li>
+            <li><a href="/logout">Cerrar sesión</a></li>
+           
+        <%// } else { %>
+            <li><a href="/login">Iniciar Sesión</a></li>
+          <% //} %>
+         </ul>
+     </nav>
+
+     <a class="logo--image" href="/">
+<img src="/imgs/pageLogo/Logo_Completo.png" alt="ZeroTrust Logo"></a>
+
+<div class="cart--pending">
+    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+<p>1</p>
+</div>
+</div>
+
+ </header>
+ -->

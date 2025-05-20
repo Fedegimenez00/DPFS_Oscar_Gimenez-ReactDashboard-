@@ -1,0 +1,172 @@
+/* Sección del Ingreso */
+
+
+/* Cuerpo del Ingreso */
+.loginCard--title{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+    flex-direction: column;
+}
+.loginCard--title h1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 0px
+}
+.loginCard--title hr{
+    
+}
+
+.loginCard--body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.loginCard--body form{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.loginCard__inside{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginCard--bodyInputs{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.loginCard--bodyInputs input{
+    padding: 15px 65px 15px 5px;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 0px;
+    width: 70%;
+    color: black;
+    border-radius: 7px;
+}
+
+
+.loginCard__checkBox{
+width: 100%;
+display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.loginCard__checkBox input{
+width: 16px;
+height: 16px;
+}
+
+.loginCard--body__button {
+    border: none;
+    background-color: var(--color-azulVioleta);
+    color: var(--color-blancoApagado);
+    font-size: 1.4rem;
+    padding: 10px 15%;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    align-self: center;
+    border-radius: 7px;
+}
+
+/* Pie del Ingreso */
+
+
+.loginCard--footer {
+    margin-bottom: 40px;
+}
+
+.loginCard--footer small{
+font-size:0.9rem;
+}
+
+.loginCard--footer a{
+font-weight: 700;
+font-size: 1.1rem;
+}
+
+
+
+
+@media (min-width: 600px) and (max-width: 1024px) {
+
+/* Cuerpo del Ingreso */
+
+.loginCard--title h1 {
+font-size: 2.2rem;
+
+}
+
+.loginCard--bodyInputs input {
+font-size: 1.2rem;
+padding: 15px 90px 15px 10px;
+ }
+
+
+ .loginCard__checkBox input {
+    width: 18px;
+    height: 18px;
+}
+
+.loginCard__checkBox label{
+    font-size: 1.2rem;
+}
+ .loginCard--body__button {
+font-size: 1.5rem;
+ }
+
+ /* Pie del Ingreso */
+
+
+ .loginCard--footer small {
+    font-size: 1.2rem;
+}
+
+.loginCard--footer a {
+    font-size: 1.3rem;
+}
+}
+
+@media (min-width: 1025px){
+
+/* Sección del Ingreso */
+
+.register--section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Cuerpo del Ingreso */
+
+.registerCard {
+    width: 45%;
+    margin: 130px 0px 0px 0px;
+    margin-bottom: 160px;
+
+}
+.registerCard--title{
+    width: 95%;
+}
+.registerCard--title h1{
+  
+}
+/* Pie del Ingreso */
+
+
+}

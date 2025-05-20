@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="profileEdit--main">
+
+        <!-- Sección del Menu del perfil de usuario-->
+        
+        <section class="profileUserMenu--section">
+        <div class="profileUserMenu--sectionContainer">
+            <div class="profileMenu--imageContainer">
+            <img src="/database/images/users/<%=user.avatar %>" alt="Avatar de <%= user.name%>">
+            <h2><%= user.name %></h2>
+        </div>
+        
+        <div class="profileUserMenu--options">
+        
+        <a href="/profile/<%=user.id %>/edit"><h3>Perfil</h3></a>
+        
+        <a href="/profile/<%=user.id %>/edit-security"><h3>Seguridad de Cuenta</h3></a>
+        
+        <a href="/profile/<%=user.id %>/my-courses"><h3>Cursos (WIP)</h3></a>
+        
+        <a href="/profile/<%=user.id %>/create"><h3>Creación de Cursos</h3></a>
+        
+        <div class="profileUserMenu--selected"> <a href="/profile/<%=user.id %>/delete-account"><h3>Cerrar Cuenta</h3></a> </div>
+        </div>
+        
+        </div>
+        </section>
+    <section class="profileEdit--section">
+<form class="profileEdit--DeleteForm" action = 'users/<%= user.id %>/delete?_method=DELETE' method="post">
+        <div class="profileEdit--sectionContainer">
+        
+            <div class="profileEdit__title">
+                <h1>Cerrar Cuenta</h1>
+            </div>
+        <div class="profileEdit__formsContainer">
+            <div class="profileDestroy--announce">
+            <p class="profileDestroy__text"> <span class="destroy__text">Advertencia: </span> Si cierras tu cuenta, te desuscribirás de todos
+            tus cursos y perderás acceso a tu cuenta y a todos los datos que estén asociados
+        a ella para siempre.</p>
+    </div>
+    <div class="profileDestroy__buttonContainer">
+        <button class="profileDestroy__button" onclick="location.href='/profile/<%=user.id %>/destroy'"  type="button">Cerrar Cuenta</button>
+        </div>
+        </div>
+    </div>
+</form>
+    </section>
+</main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

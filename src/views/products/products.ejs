@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    
+        <%- include('../partials/head') %>
+        
+<body>
+        <%- include('../partials/header') %>
+    <main>
+
+<!-- Cabecera del catálogo -->
+
+<section class="catalogHeader">
+    <article class="catalogHeader--box">
+        <div class="catalogHeader--boxInside">
+            <% const activeCategory = categories.find(category => category.id == selectedCategory); %>
+            <% if (activeCategory && activeCategory.catalogWallpaper) { %>
+                <img src="/imgs/Wallpapers/categories/<%= activeCategory.catalogWallpaper %>" alt="Banner de <%= activeCategory.name %>">
+                <div class="catalogHeader__titleContainer">
+                  <h1 class="catalogHeader--title">Cursos de <%= activeCategory.name %></h1>
+                </div>
+              <% } else { %>
+                <img src="/imgs/Wallpapers/cyberSecurityCoursesBanner.jpg" alt="Banner del catálogo">
+                <div class="catalogHeader__titleContainer">
+                  <h1 class="catalogHeader--title">Explora nuestros diversos cursos en Ciberseguridad</h1>
+                </div>
+              <% } %>
+            
+</div>
+    </article>
+</section>
+
+<!-- Caja de búsqueda -->
+
+        <section class="catalogSearch">
+            <article class="catalogSearch--box">
+                <div class="catalogSearch__searchBar">
+                    <form action="/products/search" method="GET">
+                        <input type="text" name="query" placeholder="Busca un curso..." />
+                        <button class="catalogSearch__searchButton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                        <div class="catalogSearch__selectBar">
+                            <div class="catalogSearch__selectContainer">
+                        <select name="category" id="category">
+                          <option class="selectGrey" value="">-- Seleccionar categoría --</option>
+                          <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>"><%= category.name %> </option>
+                            <% }) %>
+                        </select>
+                        </div>
+
+                        <div class="catalogSearch__selectContainer">
+                        <select name="subcategory" id="subcategory">
+                          <option value="" class="selectGrey">-- Seleccionar subcategoría --</option>
+                          <% subcategories.forEach(subcategory => { %>
+                            <option 
+                              value="<%= subcategory.id %>" 
+                              data-category-id="<%= subcategory.category_id %>"
+                              style="display: none">
+                              <%= subcategory.name %>
+                            </option>
+                          <% }) %>
+                        </select>
+                    </div>
+                
+                    <button class="catalogSearch__filterCategoriesButton"><i class="fa-solid fa-filter"></i></button>
+                </div>
+
+                      </form>
+                      
+<!--
+                    <form action="/products/results" method="get">
+                    <label for=""></label>
+                    <input placeholder="Buscar cualquier cosa" type="text" name="search" id="" value="">
+                    <button class="catalogSearch__searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+
+            </div>
+               
+                <div class="catalogSearch__selectBar">
+                <div class="catalogSearch__selectContainer">
+                    <label for="category"></label>
+    
+                   <select name="category" id="category">
+                   <option class="selectGrey" selected disabled>-- Seleccionar categoría --</option>
+ 
+   </select>
+                </div>
+                
+                <div class="catalogSearch__selectContainer">
+                    <select name="subcategory" id="subcategory">
+                        <option class="selectGrey" selected disabled>-- Seleccionar subcategoría --</option>
+                    
+                       </select>
+                </div>
+                
+                <button class="catalogSearch__filterCategoriesButton"><i class="fa-solid fa-filter"></i></button>
+            </div>-->
+            </article>
+        </section>
+
+
+                            
+<% if (!isSearch) { %>
+        <!-- Muestra el catálogo de inicio -->
+    <%- include('../partials/startCatalog') %>
+    <% } else if (products.length === 0) { %>
+         <!-- Muestra el mensaje de "No encontrado" -->
+    <%- include('../partials/noResults') %>
+    
+    <% } else { %>
+ <!-- Muestra los productos encontrados -->
+    <%- include('../partials/searchResults') %>
+            <% } %>
+                              
+           
+
+
+
+
+
+
+
+    </main>
+    
+<%- include('../partials/footer') %>
+<script src="/js/subcategories.js"></script>
+    
+</body>
+</html>

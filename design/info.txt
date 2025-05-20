@@ -1,0 +1,218 @@
+- Font Awesome
+<script src="https://kit.fontawesome.com/8b20537db2.js" crossorigin="anonymous"></script>
+
+
+- Iconos
+Shopping cart:
+<i class="fa-solid fa-cart-shopping"></i>
+
+Star Completed:
+<i class="fa-solid fa-star"></i>
+
+Star Half-completed:
+<i class="fa-regular fa-star-half-stroke"></i>
+
+Star Empty:
+<i class="fa-regular fa-star"></i>
+
+Instagram:
+<i class="fa-brands fa-instagram"></i>
+
+Youtube:
+<i class="fa-brands fa-youtube"></i>
+
+Linkedin:
+<i class="fa-brands fa-linkedin-in"></i>
+
+Facebook:
+<i class="fa-brands fa-facebook-f"></i>
+
+Twitter/X:
+<i class="fa-brands fa-x-twitter"></i>
+
+Light Bulb:
+<i class="fa-regular fa-lightbulb"></i>
+
+Download:
+<i class="fa-solid fa-download"></i>
+
+Trophy:
+<i class="fa-solid fa-trophy"></i>
+
+Award/Ribbon:
+<i class="fa-solid fa-award"></i>
+
+- Colores
+[Fondo]
+	• Negro carbón - #1B1B1B
+        • Gris oscuro - #2C2C2C
+        • Negro rojizo - #0C0202
+
+[Borde]
+       • Gris metálico - #4D4D4D
+
+[Texto]
+        • Blanco apagado - #E5E5E5
+	• Rosa claro - #FF75E3
+	
+[Botones y Links]
+	• Púrpura oscuro - #473481
+	• Azul eléctrico - #0D99FF
+	• Azul grisáceo - #8C9EFF
+	• Azul violeta - #2F4FFF
+
+[Colores-Inicio]
+	• Magenta - #FF00CC
+	• Rojo - #E90B30
+	• Celeste - #00D4E3
+	• Amarillo nube - #E8D610
+	• Verde - #5DD227
+	• Amarillo dorado - #F69C08
+
+
+[Colores nuevos usados en Mockups más recientes]:
+Violeta: #473481 transparencia al 35%
+Azul #2F4FFF transparencia al 40%
+Negro: #000000
+Negro: #000000 transparencia al 70%
+
+Icono de flecha de ir atrás opacidad al 25%
+
+Morado: #8462EB
+Morado: #8462EB transparencia al 35%
+
+Azul grisaceo: #8C9EFF transparencia al 15%
+Azul grisaceo: #8C9EFF tranparencia al 35%
+
+Negro: #1B1B1B transparencia al 85%
+
+Blanco Palido: #D9D9D9 tranparencia al 7%
+
+Gris: #E5E5E5 transparencia al 20%
+
+Borde gris al final de publicar ProductAdd: #F1F0F3
+
+Azul translucido: #2F4FFF al 85%
+
+Negro: #000000 transparencia al 20%
+
+
+[Detalles y Animaciones]
+
+
+- Tipografías (Google Fonts)
+	• Inter - Párrafos y demás (Totalmente y probablemente sea de título también)
+
+- Corner radius y transparencia [Tal vez reducir la opacidad del header]
+
+(Cursos)
+20 arriba a los dos lados
+
+(Noticias y testimonios)
+20 en todo
+Imagen con sólo 20 arriba
+
+(Categorías y bloque de precio en carrito)
+35% de opacidad
+
+(Bloques Detalle del producto )
+5% de opacidad
+
+(Añadir carrito)
+10% de opacidad
+
+(Bloque de login/register)
+90% de opacidad
+
+- Texto 
+----------------------------
+****Inicio****
+----------------------------
+(Recomendados)
+Seguridad informática desde Cero
+Josué Argañaraz
+
+(Categorías) 
+Fundamentos de Ciberseguridad
+Conceptos básicos para iniciar en ciberseguridad
+
+Hacking de Aplicaciones Web
+Descubre y explota fallos en aplicaciones web
+
+Pentesting
+Evalúa sistemas simulando ataques reales
+
+Explotación de Vulnerabilidades
+Diseña y ejecuta exploits avanzados
+
+Fortificación de Redes
+Protege sistemas mediante configuraciones seguras
+
+Respuesta a incidentes
+Actúa ante ciberataques en tiempo real
+
+Análisis de Malware
+Detecta y desarma software malicioso
+
+Gestión de Identidades y Accesos (IAM)
+Controla accesos y permisos en la nube
+
+Arquitectura Segura en la Nube
+Diseña infraestructuras cloud resistentes
+
+Respuesta a Incidentes en Cloud
+Mitiga amenazas específicas de entornos cloud
+
+Técnicas de Ingeniería Social
+Aprende estrategias de manipulación y engaño
+
+Concienciación y Educación
+Fortalece seguridad con capacitación preventiva
+
+(Detalles del footer)
+“Dominio Total, Confianza Cero”
+
+ZeroTrust Lab
+Av Boedo 1235
+Capital Federal, Argentina
+11 2564-1142
+Zerotrust@gmail.com
+© 2024 ZeroTrust Lab. Todos los derechos reservados
+
+----------------------------------
+****Detalle al producto****
+----------------------------------
+
+Fundamentos de Ciberseguridad  > Redes y seguridad
+Una introducción al mundo de la ciberseguridad
+
+Última actualización 11.2024
+
+Los 3 principios fundamentales de ciberseguridad
+Identificar ataques más comunes
+Métodos y algoritmos de encriptación
+Identificar los tipos de cibercriminales
+Seguridad física, de servidores y de sistemas
+
+Introducción al curso
+Bienvenida
+Bienvenida al curso
+Prueba de conocimientos
+
+Conceptos fundamentales
+Amenazas, Vulnerabilidades y  Ataques
+Asegurando la Protección de Datos
+
+Conceptos básicos de redes
+Tener ganas de aprender
+
+Los riesgos y amenazas de ciberseguridad están presentes y ahora más  que nunca. La infraestructura de las redes e Internet son cada vez más  vulnerables a una amplia variedad de ataques físicos y cibernéticos. Los ciberdelincuentes sofisticados, así como las naciones, aprovechan estas vulnerabilidades para robar información y dinero. 
+
+César Doapelli
+Profesional en Milanesas
+Soy un profesional que labora en el área de Cyber Risk, con el cargo de  Cybersecurity Consultant, con conocimientos en el marco normativo de  certificaciones PCI DSS.     
+
+4,5 Valoración del Curso | 3k  Valoraciones
+José Daldo Roca
+Hasta el momento ha sido un buen
+

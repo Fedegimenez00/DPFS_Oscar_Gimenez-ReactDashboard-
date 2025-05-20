@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %>
+    
+<body>
+    <%- include('../partials/header') %>
+    
+<main class="main--productAdd">
+<form class="productAdd--form" action='/products/add' method="POST" enctype="multipart/form-data">
+<section class="section--selectForms">
+
+<!-- Menú de Navegación del formulario -->
+
+<article class="selectForms--box">
+    <div class="selectForms--box__inside">
+
+        <div class="selectForms--buttonsBox">
+        <button class="toggle-button selected" data-target="contentForm1">Página de Inicio del curso</button>
+        <button class="toggle-button" data-target="contentForm2">Programa (WIP)</button>
+        <button class="toggle-button" data-target="contentForm3">Mensajes del Curso (WIP)</button>
+        </div>
+       
+        <div class="selectForms--buttonsBox">
+        <button class="toggle-button" data-target="contentForm4">Estudiantes objetivo (WIP)</button>
+        <button class="toggle-button" data-target="contentForm5">Promociones (WIP)</button>
+        </div>
+        <div class="publish__insideDesktop"> 
+             <button type="submit" class="publish--send" style="background-color: var(--color-azulVioleta);">Publicar</button>
+            <button type="reset" class="publish--cancel" style="background-color: var(--color-blancoApagadoTranslucido2)">Cancelar</button>
+        </div>
+</article>
+</section>
+
+<section class="section--forms">
+
+<!-- Página de inicio del curso -->
+
+    <article id="contentForm1" class="forms--box visible">
+    <div class="forms--box__title">
+<h1>Página de inicio del curso</h1></div>
+
+<ul class="errors">
+                    
+</ul>
+
+<div class="forms--box__inputContainer">
+    <h3 class="forms--box__inputTitle">Título del curso</h3>
+    <label for="title"></label>
+    <input type="text" placeholder="Inserta el nombre de tu curso." name="title" id="title"
+    value="<%= locals.old?.title ? old.title : '' %>">
+    <% if (locals.errors?.title) { %>
+        <p class="display-error"><%= locals.errors.title.msg %></p>
+        <% } %>
+</div>
+
+<div class="forms--box__inputContainer">
+    <h3 class="forms--box__inputTitle">Subtítulo del curso</h3>
+    <label for="subtitle"></label>
+    <input type="text" placeholder="Introduce el subtítulo de tu curso." name="subtitle" id="subtitle"
+    value="<%= locals.old?.subtitle ? old.subtitle : '' %>">
+    <% if (locals.errors?.subtitle) { %>
+        <p class="display-error"><%= locals.errors.subtitle.msg %></p>
+        <% } %>
+</div>
+
+<div class="forms--box__inputContainer">
+    <h3 class="forms--box__inputTitle">Descripción del curso</h3>
+<!--
+    <div class="enrichedTextArea--box">
+    <div class="toolbar">
+        <button type="button" onclick="applyStyle('bold', this)"><b>B</b></button>
+        <button type="button" onclick="applyStyle('italic', this)"><i>I</i></button>
+        <button type="button" onclick="applyStyle('underline', this)"><u>U</u></button>
+        <button type="button" onclick="applyStyle('insertUnorderedList', this)"><i class="fa-solid fa-list-ul"></i></button>
+        <button type="button" onclick="applyStyle('insertOrderedList', this)"><i class="fa-solid fa-list-ol"></i></button>
+    </div>
+
+    <div id="editor" class="editor empty" contenteditable="true" onfocus="clearPlaceholder()" onblur="restorePlaceholder()" onkeyup="updateToolbar()">
+        Introduce la descripción de tu curso.
+    </div>
+
+    Input oculto para enviar el contenido 
+-->
+    <textarea placeholder="Introduce la descripción de tu curso." id="description" name="description" class="enrichedTexarea" style="display: block;"><%= locals.old?.description ? old.description : '' %>
+    </textarea>
+   <label for="description"></label>
+    <% if (locals.errors?.description) { %>
+     <p class="display-error"><%= locals.errors.description.msg %></p>
+        <% } %>
+</div>
+</div>
+
+<!-- Necesita corregirse algunas cosas del controlador y el .ejs-->
+
+<div class="forms--box__inputContainer">
+    <h3 class="forms--box__inputTitle">Información básica</h3>
+    <div class="box--selects">
+    <div class="forms--box__selectContainer">
+    <label for="language"></label>
+    <select name="language" id="language">
+        <option value="" class="selectGrey" selected disabled>-- Seleccionar lenguaje --</option>
+        <% languages.forEach(language => { %>
+            <option value="<%= language.id %>"><%= language.name %> </option>
+            <% }) %>
+
+</select>
+<% if (locals.errors?.language) { %>
+    <p class="display-error"><%= locals.errors.language.msg %></p>
+    <% } %>
+</div>
+
+<div class="forms--box__selectContainer">
+    <label for="category"></label>
+    
+    <select name="category" id="category">
+        <option value="" class="selectGrey" selected disabled>-- Seleccionar categoría --</option>
+        <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %> </option>
+            <% }) %>
+
+</select>
+<% if (locals.errors?.category) { %>
+    <p class="display-error"><%= locals.errors.category.msg %></p>
+    <% } %>
+</div>
+
+<div class="forms--box__selectContainer">
+    <label for="subcategory"></label>
+    <select  name="subcategory" id="subcategory">
+        <option value="" class="selectGrey" value="0" disabled selected>-- Seleccionar subcategoría --</option>
+        <% subcategories.forEach(subcategory => { %>
+          <option 
+            value="<%= subcategory.id %>" 
+            data-category-id="<%= subcategory.category_id %>"
+            style="display: none">
+            <%= subcategory.name %>
+          </option>
+        <% }) %>
+      </select>
+</div>
+
+</div>
+</div>
+
+
+<div class="forms--box__previewContainer">
+    <h3 class="forms--box__inputTitle">Imagen del curso</h3>
+    <div class="forms--box__previewContainerInside">
+    <div class="previewContainer">
+    <div class="previewBox">
+    <img id="imgPreview" src="/imgs/Images/photo preview.webp">
+</div>
+</div>
+<div class="imageInputContainer">
+    <p class="previewDescription">Carga la imagen de tu curso aquí. Se recomienda que tenga los formatos: .jpg, .jpeg, .gif, o .png; Y sin texto en la imagen</p>
+    <div class="imageInputContainerInside">
+        <span id="file-name">No has seleccionado ...</span>
+    <div class="forms--box__fileInput">
+        <label for="image"></label>
+        <div class="pseudoButton">
+            <p class="pseudoButton--title">Subir archivo</p>
+        </div>
+    <input type="file" name="image" id="image">
+  </div>
+    <% if (locals.errors?.image) { %>
+        <p class="display-error"><%= locals.errors.image.msg %></p>
+        <% } %>
+</div>
+</div>
+</div>
+
+</div>
+<div class="forms--box__previewContainer">
+    <h3 class="forms--box__inputTitle">Video promocional (WIP)</h3>
+    <div class="forms--box__previewContainerInside">
+    <div class="previewContainer">
+        <div class="previewBox">
+        <img src="/imgs/Images/video preview.png">
+    </div>
+    </div>
+    <div class="imageInputContainer">
+<p class="previewDescription">Carga el video promocional de tu curso, un buen video servirá como un adelanto de lo que se aprenderá.</p>
+    <div class="imageInputContainerInside">
+    <span id="file">No has seleccionado ...</span>
+<div class="forms--box__fileInput">
+    <label for=""></label>
+    <div class="pseudoButton">
+        <p class="pseudoButton--title">Subir archivo</p>
+    </div>
+<input type="file" name="" id="" disabled>
+</div>
+</div>
+</div>
+    </div>
+
+<div class="forms--box__priceContainer">
+    <h3 class="forms--box__inputTitle">Precio</h3>
+    <div class="box--priceInput"> 
+        <div class="box--priceInput__Inside">
+        <label for="price"></label>
+    <input type="number" min="0" value="<%= locals.old?.price ? old.price : '0' %>"  name="price" id="price">
+    
+<p>$</p>
+</div>
+      
+</div>
+<% if (locals.errors?.price) { %>
+    <p class="display-error"><%= locals.errors.price.msg %></p>
+    <% } %>
+</div>
+</article>
+
+
+<article class="forms--box">
+    <div class="forms--box__title">
+    <h2>Índice del curso</h2>
+</div>
+
+<div class="forms--boxIndex">
+    <h3>¿Qué aprenderán los estudiantes en el curso?</h3>
+    <p>Debes de escribir, al menos, 3 objetivos de aprendizaje o resultados que los estudiantes esperen consideguir al finalizar el curso.</p>
+
+    <div class="forms--boxIndex__inside">
+<div class="forms--box__inputContainer">
+    <label for=""></label>
+    <input type="text" name="" id="">
+</div>
+
+<div class="forms--box__inputContainer">
+    <label for=""></label>
+    <input type="text" name="" id="">
+</div>
+
+<div class="forms--box__inputContainer">
+    <label for=""></label>
+    <input type="text" name="" id="">
+</div>
+</div>
+<button class="forms--normalButton">Añadir algo más a tu respuesta</button>
+</div>
+
+
+<div class="forms--boxIndex">
+<h3>¿Cuáles son los requisitos previos para realizar tu curso?</h3>
+<p>Haz una lista de todas las habilidades, herramientas, experiencia y equipos necesarios que los alumnos deberían tener antes de realizar tu curso.Si no hay requisitos, utiliza esto como una oportunidad para bajar la barrera para los principiantes.</p>
+
+<div class="forms--boxIndex__inside">
+    <div class="forms--box__inputContainer"><label for=""></label>
+        <input type="text" name="" id="">
+    </div>
+</div>
+<button class="forms--normalButton">Añadir algo más a tu respuesta</button>
+</div>
+</article>
+
+
+ <!-- Programa -->
+
+<article id="contentForm2" class="forms--box">
+    <div class="forms--box__title">
+        <h2>Programa (WIP)</h2>
+    </div>
+
+    <div class="boxContent">
+        <h3>Seccion 1:</h3>
+        <div class="boxInnerContent">
+    <div class="boxContent--inside">
+        <div class="boxContent--title">
+            <h4>Lectura 1:</h4>
+            <p>Introducción</p>
+          </div>
+          
+          <button type="button" class="content--toggleButton" data-target="toggleContentPlus">+ Contenido</button>
+          
+          <button type="button" id="toggleContentPlus" class="contentTab--button hidden">
+            Seleccionar el tipo de contenido X
+          </button>
+          
+          <div id="buttonContainer" class="button-container">
+            <!-- Aquí se generarán los botones separados -->
+          </div>
+          <!-- Botones de cancelación/eliminación específicos -->
+          <button type="button" class="cancel-button hidden" id="cancelVideoElementButton">Añadir Video X</button>
+          <button type="button" class="cancel-button hidden" id="cancelSlidesElementButton">Añadir Diapositiva X</button>
+          <button type="button" class="cancel-button hidden" id="cancelArticleElementButton">Añadir Artículo X</button>
+          <button type="button" class="cancel-button hidden" id="cancelDescriptionElementButton">Añadir Descripción X</button>
+          <button type="button" class="cancel-button hidden" id="cancelResourcesElementButton">Añadir Recursos X</button>
+          
+          <button type="button" class="realCancel-button hidden" id="realItemVideosElementButton">Añadir Video X</button>
+<button type="button" class="realCancel-button hidden" id="realItemSlidesElementButton">Añadir Diapositiva X</button>
+<button type="button" class="realCancel-button hidden" id="realItemArticlesElementButton">Añadir Artículo X</button>
+<button type="button" class="realCancel-button hidden" id="realItemDescriptionElementButton">Añadir Descripción X</button>
+<button type="button" class="realCancel-button hidden" id="realItemResourcesElementButton">Añadir Recursos X</button>
+          </div>
+
+          <div class="data-container">
+            <div class="data-contentContainer"></div>
+
+            <div class="data-descriptionContainer">
+            </div>
+
+            <h4 class="resourcesContainer--title hidden">Recursos externos</h4>
+            <div class="data-resourcesContainer">
+               
+            </div>
+
+          <div id="toggleContentTab" class="boxContent__downButtons">
+            <button type="button" class="data-add-button" data-target-container=".data-descriptionContainer" data-partial-type="itemDescription" data-cancel-button="#cancelDescriptionElementButton" data-toggle-elements=".contentMenu--buttons > div">+ Descripción</button>
+            <button type="button" class="data-add-button" data-target-container=".data-resourcesContainer" data-partial-type="itemResources" data-cancel-button="#cancelResourcesElementButton" data-toggle-elements=".contentMenu--buttons > div">+ Recursos</button>
+          </div>
+          
+          <div id="toggleContentPlus" class="contentMenu hidden">
+            <div class="contentMenu--buttons">
+              <p>Selecciona el tipo de contenido principal. Se pueden añadir archivos y enlaces como recursos.</p>
+          
+              <div>
+                <button type="button" class="data-add-button" data-target-container=".data-contentContainer" data-partial-type="itemVideos" data-cancel-button="#cancelVideoElementButton" data-toggle-elements=".contentMenu--buttons > div">Video</button>
+              </div>
+          
+              <div>
+                <button type="button" class="data-add-button" data-target-container=".data-contentContainer" data-partial-type="itemSlides" data-cancel-button="#cancelSlidesElementButton" data-toggle-elements=".contentMenu--buttons > div">Diapositivas</button>
+              </div>
+          
+              <div>
+                <button type="button" class="data-add-button" data-target-container=".data-contentContainer" data-partial-type="itemArticles" data-cancel-button="#cancelArticleElementButton" data-toggle-elements=".contentMenu--buttons > div">Artículo</button>
+              </div>
+            </div>
+          </div>
+          
+          
+
+          </div>
+          
+       </div>
+       <button class="boxContent--newElement">Añadir Elemento</button>
+
+    </div>
+
+</div>
+</div>
+<button class="boxContent--newElement">Añadir Sección</button>
+</article>
+
+
+<!-- Mensajes del curso -->
+
+<article id="contentForm3" class="forms--box">
+    <div class="forms--box__title">
+<h2>Mensajes del curso (WIP)</h2>
+</div>
+
+<div class="forms--boxMessages">
+    <p>No es obligatorio añadir un mensaje al curso, ¡Pero será un buen detalle y un motivador
+        para los estudiantes de tu curso!
+    </p>
+    <div class="forms--box__inputContainer">
+<h3 class="forms--box__inputTitle">Mensaje de bienvenida</h3>
+<textarea placeholder="Introduce un mensaje de bienvenida." name="" id=""></textarea>
+
+<label for=""></label>
+</div>
+
+<div class="forms--box__inputContainer">
+    <h3 class="forms--box__inputTitle">Mensaje de felicitación</h3>
+    <textarea placeholder="Introduce un mensaje de felicitación." name="" id=""></textarea>
+
+    <label for=""></label>
+    </div>
+    
+
+</div>
+</article>
+
+
+<!-- Estudiantes objetivo -->
+
+<article id="contentForm4" class="forms--box">
+
+    <div class="forms--box__title">
+        <h2>Estudiantes objetivo (WIP)</h2>
+    </div>
+
+    <div class="box--objectives">
+    <h3>¿Qué aprenderán los estudiantes en el curso?</h3>
+
+    <p>Debes escribir, al menos, 3 objetivos de aprendizaje o resultados que los estudiantes
+        esperen conseguir al finalizar tu curso.
+    </p>
+
+    <div class="forms--box__inputContainer">
+        <input placeholder="Introduce un objetivo." type="text">
+        <label for=""></label>
+    </div>
+
+    <div class="forms--box__inputContainer">
+        <input placeholder="Introduce un objetivo." type="text">
+        <label for=""></label>
+    </div>
+
+    <div class="forms--box__inputContainer">
+        <input placeholder="Introduce un objetivo." type="text">
+        <label for=""></label>
+    </div>
+    <div class="objectives--buttonContainer">
+
+    <button type="button"> <i class="fa-solid fa-plus"></i> Añadir algo más a tu respuesta
+    </button>
+</div>
+</div>
+
+<div class="box--objectives">
+    <h3>¿Cuáles son los requisitos previos para realizar tu curso?</h3>
+    
+    <p> Haz una lista de todas las habilidades, herramientas, experiencia y equipos necesarios que
+        los alumnos deberían tener antes de realizar tu curso.
+        Si no hay requisitos, utiliza esto como una oportunidad para bajar la barrera para los
+        principiantes.
+    </p>
+
+    <div class="forms--box__inputContainer">
+        <input placeholder="Introduce un requisito." type="text">
+        <label for=""></label>
+    </div>
+
+    <div class="objectives--buttonContainer">
+
+    <button type="button"> <i class="fa-solid fa-plus"></i> Añadir algo más a tu respuesta
+    </button>
+    </div>
+</div>
+
+</article>
+
+
+<!-- Promociones -->
+
+<article id="contentForm5" class="forms--box">
+    <div class="forms--box__title">
+        <h2>Promociones (WIP)</h2>
+    </div>
+    <p class="box--couponsList__description">
+Aquí puedes añadir cupones de descuento si así lo deseas. Esto puede impulsar a que tus futuros
+estudiantes deseen adquirir tus cursos.
+    </p>
+
+    <div class="box--couponsList__Top">
+    <div class="box--couponsList"><h3 class="box--couponsList__title">Cupones añadidos</h3>
+    <ul>
+    <div class="couponBox">
+        <div class="couponBox__inside">
+        <li>Cupón_1</li>
+    <p>(??%)</p>
+    </div>
+    <div class="couponBox__insideDown">
+        <button type="button">
+    <i class="fa-solid fa-pen"></i>
+</button>
+    <button type="button">
+    <i class="fa-solid fa-trash"></i>
+</button>
+</div>
+    </div>
+    
+    </ul>
+    </div></div>
+    <div class="box--couponsList__boxLine">
+    <hr class="box--couponsList__line">
+</div>
+    <div class="box--couponsList__Down">
+    <div class="forms--box__inputContainer"><h3 class="forms--box__inputTitle">Crear nuevos cupones</h3>
+        
+        <input placeholder="Introduce un nombre para el cupón." type="text" disabled>
+        <label for=""></label>
+    </div>
+        <div class="box--couponsPercentage">
+        <input value="1" min="1" max="100" step="1" placeholder="" type="number" disabled>
+    <label for=""></label> <p>%</p>
+</div>
+<div class="box--coupons__buttonContainer">
+<button type="button" class="box--newCoupons">Añadir cupón</button>
+</div>
+</div>
+    </div>
+
+
+</article>
+
+<!-- Botones de publicación -->
+
+<div class="publish__inside"> <button type="reset" class="publish--cancel">Cancelar</button> <button type="submit" class="publish--send">Publicar</button></div>
+
+
+</section>
+</form>
+
+ 
+</main>
+
+    <%- include('../partials/footer') %>
+  
+    <script src="/js/subcategories.js"></script>
+    <script src="/js/toolBarDescription.js"></script>
+    <script src="/js/toggle.js"></script>
+    <script src="/js/subToggle.js"></script>
+    <script src="/js/addItems.js"></script>
+    <script src="/js/previewImage.js"></script>
+    <script src="/js/imageInput.js"></script>
+
+     <!-- Validator JS: para validaciones del lado del front -->
+     <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    
+     <!-- Script JS -->
+     <script src="/js/validations/productAdd.js"></script>
+</body>
+</html>

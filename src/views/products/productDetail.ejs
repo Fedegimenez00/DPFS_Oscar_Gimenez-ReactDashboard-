@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %>
+    
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="productDetail--main">
+
+        <section class="section--productDetail__Desktop">
+
+            <div class="productDetail--categoryDesktop">
+                <p> <u style="border-bottom: 1px solid <%- myProduct.categories?.borderColor %>; text-decoration: none;"><%= myProduct.categories?.name %></u> > <%= myProduct.subcategories?.name %></p>
+                
+                
+
+            </div>
+
+            <h1 class="productDetail--title"><u style="border-bottom: 1px solid <%- myProduct.categories?.borderColor %>; text-decoration: none;"><%= myProduct.title %></u></h1>
+<p class="productDetail--quickDescription"><%= myProduct.subtitle %></p>
+
+<div class="productDetail--score">
+<div class="productDetail--rating">
+<p class="product--rating__number">4.7</p>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-regular fa-star-half-stroke"></i>
+</div>
+<span class="productDetail--rating__votes">(11.000 Calificaciones)</span>
+</div>
+<small class="productDetail--author">Creado por </small> <span class="productDetail--authorName" style="color: <%- myProduct.categories?.fontColor %>">Author's name</span>
+
+<div class="productDetail--properties">
+    <div class="productDetail--propertiesIcons">
+        <i class="fa-solid fa-cloud"></i>
+        <i class="fa-solid fa-globe"></i>
+    </div>
+    <div class="productDetail--propertiesTexts">
+        <p>Ultima actualización 11.2024</p>
+        <p><%= myProduct.languages?.name %></p>
+    </div>
+    </div>
+        </section>
+       
+        <section class="section--productDetail">
+            
+            <div class="productDetail--category">
+                <small> <u style="border-bottom: 1px solid <%- myProduct.categories?.borderColor %>; text-decoration: none;"><%= myProduct.categories?.name %></u> > <%= myProduct.subcategories?.name %></small>
+            </div>
+
+            <div class="section--productDetail__inside"
+              style=" border-color: <%- myProduct.categories?.borderColor %>;
+            background-color: <%- myProduct.categories?.detailBackgroundColor %>">
+            <div class="productDetail--preview" style="border-bottom:  solid <%- myProduct.categories?.borderColor %> 1px">
+<img src="/database/images/courses/<%= myProduct.image %>" alt="Imagen del curso">
+<div class="productDetail--preview__Items">
+<!--   <i class="fa-solid fa-circle-play"></i>
+<p>(Vista previa de este curso)</p>--> 
+</div>
+</div>
+
+<div class="productDetail__justUpperInside">
+<article class="productDetail__upperInside">
+<h1 class="productDetail--title"><u style="border-bottom: 1px solid <%- myProduct.categories?.borderColor %>; text-decoration: none;"><%= myProduct.title %></u> </h1>
+<p class="productDetail--quickDescription"><%= myProduct.subtitle%></p>
+
+<div class="productDetail--score">
+<div class="productDetail--rating">
+<p class="product--rating__number">4.7</p>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-regular fa-star-half-stroke"></i>
+</div>
+<span class="productDetail--rating__votes">(11.000 Calificaciones)</span>
+</div>
+<small class="productDetail--author">Creado por </small> <span class="productDetail--authorName">Author's name</span>
+
+<div class="productDetail--properties">
+    <div class="productDetail--propertiesIcons">
+        <i class="fa-solid fa-cloud"></i>
+        <i class="fa-solid fa-globe"></i>
+    </div>
+    <div class="productDetail--propertiesTexts">
+        <p>Ultima actualización 11.2024</p>
+        <p><%= myProduct.languages?.name %></p>
+    </div>
+    </div>
+</article>
+<article class="productDetail__downInside">
+
+    <div class="productDetail--Includes">
+        <h3>Este curso incluye:</h3>
+        <div class="productDetail--Includes__Inside">
+    <div class="productDetail--Includes__Icons">
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-solid fa-clipboard-list"></i>
+        <i class="fa-solid fa-download"></i>
+        <i class="fa-solid fa-trophy"></i>
+    </div>
+
+    <div class="productDetail--Includes__Text">
+        <p>3 horas de video</p>
+        <p>Tareas</p>
+        <p>Recursos descargables</p>
+        <p>Certificado de finalización</p>
+    </div>
+</div>
+</article>
+
+    <article class="productDetail--priceCard"
+    style="border-top: solid <%- myProduct.categories?.borderColor %> 1px">
+        <p class="priceCard__price">$<%= myProduct.price %></p>
+
+        <div class="priceCard--buttons">
+        <button class="priceCard__buttonCart">Añadir a la cesta</button>
+        <button class="priceCard__buttonBuy">Comprar ahora</button>
+    </div>
+</div>
+        <hr class="priceCard--line" style="border-color: <%- myProduct.categories?.borderColor %>">
+        <div class="priceCard--shareBox">
+            <div class="priceCard--shareBox__Sub-container">
+            <i class="fa-solid fa-share-nodes"></i> <p>Compartir</p>
+        </div>
+        <div class="priceCard--shareBox__Sub-container">
+            <i class="fa-solid fa-gift"></i> <p>Regalar este curso</p>
+        </div>
+
+        </div>
+        <div class="priceCard--discountBox">
+            <p>Aplicar el cupón</p>
+            <div class="discountBox__discount">
+            <form action="/product-detail">
+                <input  type="text" name="discount" id="discount" placeholder="Introducir el cupón">
+                <label for="discount"></label>
+                <button class="discountBox__button" type="button">Aplicar</button>
+            </form>
+        </div>
+        </div>
+    </article>
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<section class="productDetail--learning">
+    <div class="productDetail--learning__Inside">
+<article class="learningBox"
+style=" border: solid <%- myProduct.categories?.borderColor %> 1px;
+        background-color: <%- myProduct.categories?.detailBackgroundColor %>">
+    <div class="learningBox__Inside">
+<h2 class="learningBox--title">Lo que aprenderás</h2>
+<div class="learningBox__Inside--Inside">
+<div class="learningBox--item">
+    <i class="fa-solid fa-check"></i>
+    <p>Los 3 principios fundamentales de ciberseguridad</p>
+</div>
+<div class="learningBox--item">
+    <i class="fa-solid fa-check"></i>
+    <p>Identificar ataques más comunes</p>
+</div>
+<div class="learningBox--item">
+    <i class="fa-solid fa-check"></i>
+    <p>Métodos y algoritmos de encriptación</p>
+</div>
+<div class="learningBox--item">
+    <i class="fa-solid fa-check"></i>
+    <p>Identificar los tipos de cibercriminales</p>
+</div>
+<div class="learningBox--item">
+    <i class="fa-solid fa-check"></i>
+    <p>Seguridad física, de servidores y de sistemas</p>
+</div>
+</div>
+</div>
+
+</article>
+</div>
+</section>
+
+<section class="productDetail--contents">
+    <div class="productDetail--contents__inside">
+    <div class="productDetail--contents__titles">
+<h2 style="margin-bottom: 15px"> 
+    <u style="border-bottom: 1px solid <%- myProduct.categories?.borderColor %>; text-decoration: none; ">Contenido del curso</u></h2>
+<p>14 secciones | 20 clases | 5h 20 minutos de duración total</p>
+</div>
+
+<article class="productDetail--contentsCard" style="border: solid <%- myProduct.categories?.borderColor %> 1px">
+    <div class="contentsCard--section"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> ">
+        <div>
+            <button type="button" class="productDetail__collapsible"  data-target="Content-1"><i class="fa-solid fa-chevron-down"></i></button>
+        <h3>Introducción al curso</h3>
+    </div>
+        <p class="contentsCard--section__contents">1 clase | 1 min</p>
+        
+    </div>
+    <div id="Content-1" class="productDetail__collapsibleContents"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> "> 
+       <div class="productDetail__collapsibleContents__inside"> <i class="fa-brands fa-youtube"></i> <p>Lorem ipsum dolor sit...</p></div>
+       <div class="productDetail__collapsibleContents__inside"> <i class="fa-regular fa-lightbulb"></i> <p>Lorem ipsum dolor sit...</p></div>
+    </div>
+    <div class="contentsCard--section"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> ">
+        <div>
+            <button type="button" class="productDetail__collapsible"  data-target="Content-2"><i class="fa-solid fa-chevron-down"></i></button>
+
+            <h3>Conceptos fundamentales</h3> 
+        </div>
+
+        <p class="contentsCard--section__contents">5 clases | 10 min</p>
+    </div>
+
+    <div id="Content-2" class="productDetail__collapsibleContents"
+    style="border-bottom: solid <%- myProduct.categories?.borderColour %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> "> 
+        <div class="productDetail__collapsibleContents__inside"> <i class="fa-brands fa-youtube"></i> <p>Lorem ipsum dolor sit...</p></div>
+        <div class="productDetail__collapsibleContents__inside"> <i class="fa-regular fa-lightbulb"></i> <p>Lorem ipsum dolor sit...</p></div>
+     </div>
+    <div class="contentsCard--section"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> ">
+        <div>
+            <button type="button" class="productDetail__collapsible"  data-target="Content-3"><i class="fa-solid fa-chevron-down"></i></button>
+
+            <h3>Amenazas, Vulnerabilidades y Ataques</h3>
+        </div>
+
+        <p class="contentsCard--section__contents">4 clases | 15 min</p>
+        
+    </div>
+    <div id="Content-3" class="productDetail__collapsibleContents"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> "> 
+        <div class="productDetail__collapsibleContents__inside"> <i class="fa-brands fa-youtube"></i> <p>Lorem ipsum dolor sit...</p></div>
+        <div class="productDetail__collapsibleContents__inside"> <i class="fa-regular fa-lightbulb"></i> <p>Lorem ipsum dolor sit...</p></div>
+     </div>
+    <div class="contentsCard--section"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> ">
+        <div>
+            <button type="button" class="productDetail__collapsible"  data-target="Content-4"><i class="fa-solid fa-chevron-down"></i></button>
+
+            <h3>Asegurando la Protección de Datos</h3>
+        </div>
+        
+        <p class="contentsCard--section__contents">2 clases | 5 min</p>
+        
+    </div>
+    <div id="Content-4" class="productDetail__collapsibleContents"
+    style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> "> 
+        <div class="productDetail__collapsibleContents__inside"> <i class="fa-brands fa-youtube"></i> <p>Lorem ipsum dolor sit...</p></div>
+        <div class="productDetail__collapsibleContents__inside"> <i class="fa-regular fa-lightbulb"></i> <p>Lorem ipsum dolor sit...</p></div>
+     </div>
+</article>
+
+<button class="contentsCard--sections__Button" 
+style="border: solid <%- myProduct.categories?.borderColor %> 1px;
+      background-color: <%- myProduct.categories?.detailBackgroundColor %> "
+type="button">10 Secciones más</button>
+</div>
+</section>
+
+
+
+<section class="productDetail--description">
+    <div class="productDetail--description__inside">
+        <article class="productDetail--requirementCard"
+        style="border-bottom: solid <%- myProduct.categories?.borderColor %> 1px;
+           border-top: solid <%- myProduct.categories?.borderColor %> 1px">
+            <div class="requirementCard--title">
+            <div class="requirementCard--titleInside"><h2>Requisitos</h2> 
+                <button type="button" class="productDetail__collapsible"  data-target="requirementContent-1"><i class="fa-solid fa-chevron-down"></i></button>
+
+            </div>
+            <hr style="border-color: <%- myProduct.categories?.borderColor %>">
+            <div id="requirementContent-1" class="productDetail__requirementCollapsibleContents">
+                <div class="requirementCollapsible__inside"> <i class="fa-solid fa-circle"></i> <p>Conceptos básicos de redes</p></div>
+                <div class="requirementCollapsible__inside"> <i class="fa-solid fa-circle"></i> <p>Tener ganas de aprender</p></div>
+
+            </div>
+        </article>
+
+        <article class="productDetail--descriptionBox">
+    <div class="productDetail--description__title">
+    <h2>Descripción</h2>
+    <hr
+    style="border-color: <%- myProduct.categories?.borderColor %>">
+</div>
+<p><%= myProduct.description %></p>
+</p>
+</article>
+</div>
+</section>
+<section class="productDetail--mentor">
+    <div class="productDetail--mentor_inside">
+    <article class="productDetail--mentorCard"
+    style="border: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> ">
+        <div class="productDetail--mentorCard__inside">
+        <h2>Mentor</h2>
+        <div class="mentorCard--identity">
+        <h3>Author's name</h3>
+        <h4>Profesional en milanesas</4></div>
+        <div class="mentorCard--Inside">
+            <div class="mentorCard--Inside__Image-Awards">
+        <img src="/imgs/Images/user.png" alt="">
+        <div class="mentorCard--Inside__inside">
+            <div class="mentorCard--Inside__ratings">
+            <i class="fa-solid fa-star"></i> 
+            <i class="fa-solid fa-award"></i>
+            <i class="fa-solid fa-circle-play"></i>
+                </div>
+                <div class="mentorCard--Inside__ratingsText">
+                    <small>Calificación: 4.7</small>
+                    <small>73 Reseñas</small>
+                    <small>5 cursos</small>
+                
+            </div>
+        </div>
+        </div>
+        <p class="mentorCard--description">Soy un profesional que labora en el área de Cyber Risk, con el cargo de  Cybersecurity Consultant, con conocimientos en el marco normativo de  certificaciones PCI DSS.     
+        </p>
+    </div>
+    </div>
+    </article>
+    </div>
+</section>
+
+<section class="productDetail--review">
+    <div class="productDetail--review__inside">
+    <div class="productDetail--review__totalScore"><i class="fa-solid fa-star"></i><h2 class="review__totalScore--title">4,5 | 3k Valoraciones</h2> <h2 class="review__totalScore--titleDesktop">4,5 Valoración del Curso | 3k Valoraciones</h2>
+    </div>
+    <article class="review--card"
+    style="border-top: solid <%- myProduct.categories?.borderColor %> 1px">
+        <div class="review--card__insideMargins">
+    <div class="review--card__inside">
+        <div class="review--card__inside__title">
+            <h3>José Daldo Roca</h3>
+            <small>Hace 2 semanas</small>
+        </div>
+    <img src="/imgs/Images/pngegg 7.png" alt="">
+    </div>
+    <p class="review--card__description">Hasta el momento, ha sido un buen curso.</p>
+</div>
+    </article>
+    <button class="review__buttonMore"
+    style="border: solid <%- myProduct.categories?.borderColor %> 1px;
+           background-color: <%- myProduct.categories?.detailBackgroundColor %> ">Mostrar todas las Reseñas</button>
+</div>
+</section>
+<hr class="productDetail--separationLine"
+style="border-color: <%- myProduct.categories?.borderColor %>">
+
+<section class="productDetail--recommendations">
+    <div class=" productDetail--recommendations__inside">
+    <h2>Recomendaciones</h2>
+    <article class="recommendations--card"> <div class="recommendations--cardInsider">
+        <img src="/imgs/Images/CourseExample 2.png" alt="">
+        <div class="recommendations--card__inside">
+        <div class="recommendations--card__title">
+        <h3>Título</h3>
+        <h4>Mentor</h4>
+        </div>
+    <div class="recommendations--card__rating">
+        <div class="recommendations--card__rating-Stars">
+            <p>4,5</p> 
+            <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="recommendations--card__rating-Reviews">
+            <i class="fa-solid fa-users"></i>
+            <p>11.000</p> 
+        </div>
+
+        <div class="recommendations--card__rating-ReviewsTablet">
+            <p>(11.000 Valoraciones)</p>
+        </div>
+    
+    </div>
+<p class="recommendations--card__price">$4.500</p>
+</div>
+</article>
+<button class="productDetail--recommendations__button">Ver más</button>
+</div>
+
+<article class="course--card__recommendations">
+   
+    <img class="course--card__photo" src="/imgs/Images/course-image.jpg" alt="Imagen de Curso">
+    <h3>Seguridad Informática desde Cero</h3>
+    <small>Josué Argañaraz</small>
+    <div class="course--card__rating">
+    <p>4.0</p> 
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+</div>
+    <p class="course--card__price">$15.000</p>
+    <div class="course--cardDown">
+    <button class="course--card__previewButton">Ver más</button>
+</div>
+</article>
+</section>
+</main>
+
+<%- include('../partials/footer') %>
+
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+
+<main class="profileEdit--main">
+
+    <section class="profileUserMenu--section">
+        <div class="profileUserMenu--sectionContainer">
+            <div class="profileMenu--imageContainer">
+            <img src="/database/images/users/<%=user.avatar %>" alt="Avatar de <%= user.name%>">
+            <h2><%= user.name %></h2>
+        </div>
+        
+        <div class="profileUserMenu--options">
+        
+        <a href="/profile/<%=user.id %>/edit"><h3>Perfil</h3></a>
+        
+        <a href="/profile/<%=user.id %>/edit-security"><h3>Seguridad de Cuenta</h3></a>
+        
+        <div class="profileUserMenu--selected"><a href="/profile/<%=user.id %>/my-courses"><h3>Cursos (WIP)</h3></a></div>
+        
+        <a href="/profile/<%=user.id %>/create"><h3>Creación de Cursos</h3></a>
+        
+         <a href="/profile/<%=user.id %>/delete-account"><h3>Cerrar Cuenta</h3></a> 
+        
+        </div>
+        </section>
+
+    <section class="profileEdit--section">
+
+        <div class="profileEdit--sectionContainer">
+        
+            <div class="profileEdit__title"><h1>Cursos (WIP)</h1></div>
+            <div class="profileEdit__formsContainer">
+
+            <article class="coursesListSearch--box">
+                <div class="productListSearch__searchBar">
+                    <label for=""></label>
+                    <input placeholder="Buscar cualquier cosa" type="text" name="" id="">
+                    <button class="productListSearch__searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+               
+                <div class="productListSearch__selectBar">
+                <div class="productListSearch__selectContainer">
+                    <label for="category"></label>
+            
+                    <select name="category" id="category">
+                    <option class="selectGrey" selected disabled>-- Seleccionar categoría --</option>
+        
+        </select>
+                </div>
+                
+                <div class="productListSearch__selectContainer">
+                    <select name="subcategory" id="subcategory">
+                        <option class="selectGrey" selected disabled>-- Seleccionar subcategoría --</option>
+                    
+                       </select>
+                </div>
+                
+                <button class="productListSearch__filterCategoriesButton"><i class="fa-solid fa-filter"></i></button>
+            </div>
+            </article>
+
+            <div class="profileEdit--inputContainer">
+                <h3>Lista de cursos:</h3>
+                </div>
+
+                <div class="productListMyCourses--inside">
+
+                    <article class="productList--card">
+    
+
+                        <img src="/imgs/Images/3850850_5754_2 2.png" alt="imagen del curso"> 
+                        <div class="productList--cardStructure">
+                        <div class="productList--cardStructureInside">
+                        <div class="productProgress--container">
+                        <h3 class="productList--card__title">Título del curso </h3> <span class="progress__product"> <span class="progress__inProcess"> <i class="fa-solid fa-ellipsis"></i></span></span></div>
+                        <small class="productList--card__author">Author's name</small>
+                        <div class="productList--card__tag">
+                            <p class="productList--card__tagTitle">Categoría del Curso</p>
+                        </div>
+                        </div>
+                        
+                        <div class="viewCourse--image">
+                        <a href="#"> <img src="/imgs/Icons/ViewCourse.png" alt="Ver curso"></a>
+                    </div>
+                    </div>
+                    
+                    </article>
+
+                      <article class="productList--card">
+    
+
+                        <img src="/imgs/Images/3850850_5754_2 2.png" alt="imagen del curso"> 
+                        <div class="productList--cardStructure">
+                        <div class="productList--cardStructureInside">
+                        <div class="productProgress--container">
+                        <h3 class="productList--card__title">Título del curso </h3> <span class="progress__product"> <span class="progress__Completed"> <i class="fa-solid fa-circle-check"></i></span></span></div>
+                        <small class="productList--card__author">Author's name</small>
+                        <div class="productList--card__tag">
+                            <p class="productList--card__tagTitle">Categoría del Curso</p>
+                        </div>
+                        </div>
+                        
+                        <div class="viewCourse--image">
+                        <a href="#"> <img src="/imgs/Icons/ViewCourse.png" alt="Ver curso"></a>
+                    </div>
+                    </div>
+                    
+                    </article>
+
+                    <article class="productList--card">
+    
+
+                        <img src="/imgs/Images/3850850_5754_2 2.png" alt="imagen del curso"> 
+                        <div class="productList--cardStructure">
+                        <div class="productList--cardStructureInside">
+                        <div class="productProgress--container">
+                        <h3 class="productList--card__title">Título del curso </h3> <span class="progress__product"> <span class="progress__Empty"> <i class="fa-solid fa-box-archive"></i></span></span></div>
+                        <small class="productList--card__author">Author's name</small>
+                        <div class="productList--card__tag">
+                            <p class="productList--card__tagTitle">Categoría del Curso</p>
+                        </div>
+                        </div>
+                        
+                        <div class="viewCourse--image">
+                        <a href="#"> <img src="/imgs/Icons/ViewCourse.png" alt="Ver curso"></a>
+                    </div>
+                    </div>
+                    
+                    </article>
+
+                    <article class="productList--card">
+    
+
+                        <img src="/imgs/Images/3850850_5754_2 2.png" alt="imagen del curso"> 
+                        <div class="productList--cardStructure">
+                        <div class="productList--cardStructureInside">
+                        <div class="productProgress--container">
+                        <h3 class="productList--card__title">Título del curso </h3> <span class="progress__product"> <span class="progress__Empty"> <i class="fa-solid fa-box-archive"></i></span></span></div>
+                        <small class="productList--card__author">Author's name</small>
+                        <div class="productList--card__tag">
+                            <p class="productList--card__tagTitle">Categoría del Curso</p>
+                        </div>
+                        </div>
+                        
+                        <div class="viewCourse--image">
+                        <a href="#"> <img src="/imgs/Icons/ViewCourse.png" alt="Ver curso"></a>
+                    </div>
+                    </div>
+                    
+                    </article>
+
+                    <article class="productList--card">
+    
+
+                        <img src="/imgs/Images/3850850_5754_2 2.png" alt="imagen del curso"> 
+                        <div class="productList--cardStructure">
+                        <div class="productList--cardStructureInside">
+                        <div class="productProgress--container">
+                        <h3 class="productList--card__title">Título del curso </h3> <span class="progress__product"> <span class="progress__Empty"> <i class="fa-solid fa-box-archive"></i></span></span></div>
+                        <small class="productList--card__author">Author's name</small>
+                        <div class="productList--card__tag">
+                            <p class="productList--card__tagTitle">Categoría del Curso</p>
+                        </div>
+                        </div>
+                        
+                        <div class="viewCourse--image">
+                        <a href="#"> <img src="/imgs/Icons/ViewCourse.png" alt="Ver curso"></a>
+                    </div>
+                    </div>
+                    
+                    </article>
+
+
+                </div>
+                <div class="adminListPaginator--box"> 
+                    <div class="paginator--boxInside">
+                    <button class="paginator__buttonLeft" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="paginator--numbersContainer">
+                     <p class="selectedNumber">1</p> <p>2</p> <p>3</p> 
+                    </div>
+                     <button class="paginator__buttonRight"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        </section>  
+        
+        <!-- Paginador -->
+
+
+</main>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

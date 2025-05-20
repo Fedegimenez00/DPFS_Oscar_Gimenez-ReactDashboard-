@@ -1,0 +1,290 @@
+
+/* Menú toggle de Administrador */
+
+.administratorMenu{
+    width: 11%;
+    max-width: 40px;
+    position: fixed;
+
+}
+
+.administratorMenu--box{
+    background-color: var(--color-moradoTranslucido);
+    border-radius: 7px;
+    border: solid var(--color-morado) 1px;
+    
+}
+
+.administratorMenu--buttonsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.administratorMenu--buttonsContainer button{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 8px 5px;
+    font-size: 1.2rem;
+    color: var(--color-blancoApagado);
+}
+
+.administratorMenu--buttonsContainer hr{
+    border-width: 0px 0px 1px;
+    border-color: var(--color-morado);
+    width: 100%;
+}
+
+/* Título de la sección del perfil de admin */
+
+.admin-title{
+    margin-left: 28px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.admin-title h1{
+    font-size: 1.7rem;
+}
+
+/* Caja de búsqueda */
+
+.productListSearch{
+    margin-bottom: 45px;
+        margin-bottom: 35px;
+    margin-left: 45px;
+
+}
+
+.productListSearch--box{
+    background-color: var(--color-azulVioletaTranslucido);
+    border: solid var(--color-azulVioleta) 1px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productListSearch__searchBar{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.productListSearch__searchBar input{
+    padding: 10px 0px 10px 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 190px;
+    font-size: 1rem;
+    border: none;
+    text-shadow: none;
+    opacity: 1;
+    color:black;
+}
+
+.productListSearch__searchButton{
+    color: var(--color-blancoApagado);
+    background-color: var(--color-negroPuro);
+    border: none;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.4rem;
+    padding: 6px 19px 6px 19px;
+}
+
+.productListSearch__searchButton i{
+
+}
+
+.productListSearch__selectBar{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.productListSearch__selectContainer{
+    width: 40%;
+}
+
+.productListSearch__selectContainer input{
+
+}
+
+.productListSearch__selectContainer select{
+    color: black;
+    border-radius: 10px;
+    padding: 11px 10% 11px 10px;
+    border: none;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.selectGrey{
+    color: grey;
+}
+
+.productListSearch__selectContainer option{
+
+}
+
+.productListSearch__selectContainer label{
+
+}
+
+.productListSearch__filterCategoriesButton{
+    color: var(--color-blancoApagado);
+    background-color: var(--color-negroPuro);
+    border-radius: 10px;
+    border: none;
+    font-size: 1.3rem;
+    padding: 8px;
+}
+
+.productListSearch__filterCategoriesButton i{
+
+}
+
+
+
+/* Container de Lista de Productos */
+
+.productList{
+margin-left: 45px;
+margin-right: 5px;
+ /* height: 700px; */
+margin-bottom: 25px;
+}
+
+.productList--inside{
+
+}
+
+.productList--card{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-top: solid 1px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.productList--card img{
+    width: 65px;
+}
+
+.productList--cardStructure{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.productList--cardStructureInside{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2px;
+}
+
+.productList--card__title{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.productList--card__author{
+    font-size: 0.6rem;
+}
+
+.productList--card__tag{
+    border-radius: 3px;
+    margin-top: 20px;
+    width: 93px;
+}
+
+.productList--card__tagTitle{
+    font-size: 0.6rem;
+}
+
+
+.productList--card__optionsContainer{
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.productList--card__optionsContainer button{
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: var(--color-blancoApagado);
+}
+
+
+
+/* Paginador */
+
+.adminListPaginator--box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+/* Paginador (Es el mismo que se encuentra en products */
+.paginator--boxInside{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.paginator__buttonLeft{
+    color: var(--color-moradoTranslucido);
+    border: none;
+    font-size: 1.4rem;
+    border-radius: 25px;
+    padding: 4px 10px;
+    background-color: transparent;
+ 
+}
+
+.paginator__buttonLeft i{
+
+}
+
+.paginator--numbersContainer{
+display: flex;
+gap: 16px;
+font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.paginator--numbersContainer p{
+
+}
+
+.selectedNumber{
+    border-bottom: solid var(--color-morado);
+    padding: 0px 2px;
+}
+
+.paginator--boxInside button{
+   
+}
+
+.paginator__buttonRight {
+    font-size: 1.4rem;
+    border-radius: 25px;
+    padding: 4px 10px;
+    background-color: transparent;
+    color: var(--color-morado);
+    border: solid var(--color-morado) 1px;
+}
+
+.paginator__buttonRight i{
+
+}

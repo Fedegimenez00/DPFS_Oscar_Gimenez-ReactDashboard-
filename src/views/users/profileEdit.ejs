@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+
+<body>
+    
+        <%- include('../partials/header') %>
+    
+<main class="profileEdit--main">
+
+<!-- Sección del Menu del perfil de usuario-->
+
+<section class="profileUserMenu--section">
+<div class="profileUserMenu--sectionContainer">
+    <div class="profileMenu--imageContainer">
+    <img src="/database/images/users/<%=user.avatar %>" alt="Avatar de <%= user.name%>">
+    <h2><%= user.name %></h2>
+</div>
+
+<div class="profileUserMenu--options">
+
+<div class="profileUserMenu--selected"><a href="/profile/<%=user.id %>/edit"><h3>Perfil</h3></a></div> 
+
+<a href="/profile/<%=user.id %>/edit-security"><h3>Seguridad de Cuenta</h3></a>
+
+<a href="/profile/<%=user.id %>/my-courses"><h3>Cursos (WIP)</h3></a>
+
+<a href="/profile/<%=user.id %>/create"><h3>Creación de Cursos</h3></a>
+
+<a href="/profile/<%=user.id %>/delete-account"><h3>Cerrar Cuenta</h3></a>
+</div>
+
+</div>
+</section>
+
+<!-- Sección de la edición del Perfil -->
+
+<section class="profileEdit--section">
+
+<div class="profileEdit--sectionContainer">
+
+    <div class="profileEdit__title"><h1>Perfil Personal</h1></div>
+
+<form class="profileEdit__forms" action='/profile/<%= user.id %>/edit?_method=PUT' method="POST" enctype="multipart/form-data">
+   <div class="profileEdit__formsContainer">
+    <div class="profileEdit--inputContainer">
+        <h3>Básico:</h3>
+        <div class="profileEdit--inputContainer__inside">
+        <label for="user_firstname"></label>
+        <input type="text" name="firstName" id="firstName" placeholder="Nombre" value="<%= user.firstName %>"> </input>
+    </div>
+    <div class="profileEdit--inputContainer__inside">
+        <label for="secondName"></label>
+        <input type="text" name="lastName" id="lastName" placeholder="Apellido" value="<%= user.lastName %>"> </input>
+    </div>
+    
+    </div>
+     <div class="profileEdit--inputContainer">
+        <h3>Titular:</h3>
+        <div class="profileEdit--inputContainer__inside">
+        <label for="headline"></label>
+        <input type="text" name="headline" id="headline" placeholder="Titular" value="<%= user.headline %>"> </input>
+    </div>
+     <div class="profileEdit--inputContainer">
+        <h3>Descripción:</h3>
+        <div class="profileEdit--inputContainer__inside">
+        <label for="description"></label>
+        <textarea name="description" id="description" placeholder="Descripción personal"><%= user.description %></textarea>
+    </div>
+    <div class="profileEdit--avatarContainer">
+        <h3>Imagen de perfil</h3>
+        <div class="avatarInputsContainerInside">
+        <div class="profileEdit--avatarImage">
+            <div class="profileEdit--avatarImage__inside">
+                <div class="previewBox">
+                <img id="imgPreview" src="/database/images/users/<%= user.avatar%>">
+                </div>
+
+            </div>
+    </div>
+    <div class="avatarInputContainer">
+        <p class="avatarInputRecommendations">Aquí puedes cargar tu imagen de perfil. Se recomienda usar los formatos: .jpg, .jpeg, .png</p>
+        <p class="avatarInputInsert">Agregar / Cambiar imagen de perfil</p>
+        <div class="avatarInputContainerInside">
+    <span id="file-name">No has seleccionado ...</span>
+<div class="profileEdit--avatarInputContainer__input">
+    
+    <input type="file" name="avatar" id="avatar">
+    <div class="pseudoButton">
+        <p class="pseudoButton--title">Subir archivo</p>
+    </div>
+</div>
+</div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+<div class="profileEdit__buttonContainer">
+<button class="profileEdit__button" type="submit">Guardar</button>
+</div>
+</form>
+
+</div>
+</section>    
+</main>
+
+    <%- include('../partials/footer') %>
+    
+    <script src="/js/previewAvatar.js"></script>
+    <script src="/js/avatarInput.js"></script>
+
+    <!-- Agregar los elementos del profileEdit -->
+
+</body>
+</html>

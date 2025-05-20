@@ -1,0 +1,60 @@
+:root{
+     /* Fondo */
+    --color-negroCarbon : #1B1B1B;
+    --color-grisOscuro : #2C2C2C;
+    --color-grisOscuroNiebla: rgba(44, 44, 44, 0.3);
+    --color-grisOscuroTranslucido: rgba(44, 44, 44, 0.55);
+    --color-grisOscuroTranslucido2: rgba(44, 44, 44, 0.35);
+    --color-negroRojizo : #0C0202;
+    --color-negroRojizoTranslucido: rgba(12, 2, 2, 0.5);
+    --color-blancoApagadoTranslucido: rgba(229, 229, 229, 0.1);
+    --color-blancoApagadoTranslucido2: rgba(229, 229, 229, 0.35);
+
+     /* Borde*/
+    --color-grisMetalico : #4D4D4D;
+
+     /* Texto */
+    --color-blancoApagado : #E5E5E5;
+    --color-rojoAviso: #E90B0F;
+    --color-rosaClaro : #FF75E3;
+    --color-rojoClaro : #ff4a68;
+    --color-celesteClaro: #63f5ff;
+    --color-amarilloClaro: #fff268;
+    --color-verdeClaro: #9cff6e;
+
+     /* Botones y links*/
+     --color-morado: #8462EB ;
+     --color-moradoTranslucido: rgba(132, 98, 235, 0.35) ;
+     --color-moradoTranslucido2: rgba(132, 98, 235, 0.4);
+     --color-moradoTranslucido3: rgba(132, 98, 235, 0.3);
+     --color-purpuraOscuro : #473481;
+     --color-purpuraClaro: #8462EB;
+     --color-purpuraClaroTranslucido: rgba(132, 98, 235, 0.25);
+     --color-azulElectrico : #0D99FF;
+     --color-azulGrisaceo : #8C9EFF;
+     --color-azulGrisaceoTranslucido: rgba(140, 158, 255, 0.35);
+     --color-azulGrisaceoMuyTranslucido: rgba(139, 158, 255, 0.15);
+     --color-azulVioleta : #2F4FFF;
+     --color-azulVioletaTranslucido: rgba(47, 79, 255, 0.35);
+     --color-azulVioletaMuyTranslucido: rgb(47 79 255 / 15%);
+     --color-amarilloDorado : #F69C08;
+     --color-negroPuro: #000000;
+     --color-negroPuroTranslucido: rgba(0, 0, 0, 0.65);
+
+     /* Colores categóricos*/
+     --color-magenta : #FF00CC;
+     --color-magentaTranslucido: rgba(255, 0, 204, 0.35);
+     --color-magentaMuyTranslucido : rgba(255, 0, 204, 0.05);
+     --color-rojoAtaque : #E90B30;
+     --color-rojoAtaqueTranslucido: rgba(233, 11, 48, 0.35);
+     --color-rojoAtaqueMuyTranslucido: rgba(233, 11, 48, 0.05);
+     --color-celesteDefensa : #00D4E3;
+     --color-celesteDefensaTranslucido :rgba(0, 212, 227, 0.35);
+     --color-celesteDefensaMuyTranslucido :rgba(0, 212, 227, 0.05);
+     --color-amarilloNube : #E8D610;
+     --color-amarilloNubeTranslucido: rgba(232, 214, 16, 0.35);
+     --color-amarilloNubeMuyTranslucido: rgba(232, 214, 16, 0.05);
+     --color-verdeSocial : #5DD227;
+     --color-verdeSocialTranslucido: rgba(93, 210, 39, 0.35);
+     --color-verdeSocialMuyTranslucido: rgba(93, 210, 39, 0.05);
+}
