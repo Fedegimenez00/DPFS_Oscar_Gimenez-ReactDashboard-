@@ -1,13 +1,19 @@
-const { where } = require("sequelize");
-const db = require("../../database/models");
+const fs = require('fs');
+const path = require('path');
+const db = require('../../database/models')
 
-module.exports = {
-  getCategories: async (req, res) => {
-    let categories = await db.Category.findAll();
+const indexController = {
+    index : async (req, res) => {
+        try {
+       const productsDB = db.Product.findAll()
+        console.log(productsDB);
 
-    res.json({
-      count: categories.length,
-      categories,
-    });
-  },
+        } catch (error) {
+            
+        }
+        return res.render('index');
+    req.session.horaDeVisita = Date.now //?
+    }
 };
+
+module.exports = indexController;

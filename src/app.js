@@ -15,10 +15,17 @@ const dataBase = new sqlite3.Database(path.resolve(__dirname, '../databaseSQLite
 */
 const methodOverride = require("method-override");
 
+//Renders
 const indexRouter = require("./routes/index.routes.js");
 const userRouter = require("./routes/user.routes.js");
 const productRouter = require("./routes/product.routes.js");
 const adminRouter = require("./routes/admin.routes.js");
+
+//Api Routes
+const usersApiRouter = require('./routes/api/users.apiRoutes.js');
+const productsApiRouter = require('./routes/api/products.apiRoutes.js');
+
+//const categoriesApiRouter = require('./routes/api/categories.apiRoutes.js');
 
 /* Sirve para ver logs de las peticiones
 const morgan = require('morgan');
@@ -64,13 +71,17 @@ app
 
   .use("/", userRouter)
 
-  .use("/", adminRouter);
-app.use(function (req, res) {
-  res.status(404).render("not-found.ejs", { title: "No encontrado" });
-});
-//Api Routes
-const usersApiRoutes = require("./routes/api/user.apiRoutes.js");
-//const productsApiRoutes = require("./routes/api/proudct.apiRoutes.js")
+  .use("/", adminRouter)
+
+  //Rutas de navegación API
+  .use('/api/users', usersApiRouter)
+  .use('/api/products', productsApiRouter)
+  
+
+  .use(function (req, res) {
+    res.status(404).render("not-found.ejs", { title: "No encontrado" });
+  });
+
 
 app.listen(PORT, async () => {
   //sqlite3

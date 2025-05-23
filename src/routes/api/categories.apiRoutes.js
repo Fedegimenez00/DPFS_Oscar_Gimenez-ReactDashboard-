@@ -1,11 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const {index} = require('../controllers/indexControllers');
 
-const {
-  getCategories,
-} = require("../../controller/api/categories.apiController");
-
-// Endpoint de productos
-router.get("/", getCategories);
+router
+.get('/', index)
 
 module.exports = router;

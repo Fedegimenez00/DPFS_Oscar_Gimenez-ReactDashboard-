@@ -1,69 +1,50 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-const path = require("path");
+const multer = require('multer');
+const path = require('path')
 
-const {
-  login,
-  register,
-  processRegister,
-  processLogin,
-  profile,
-  logout,
-  edit,
-  editUpdate,
-  courseList,
-  courseCreate,
-  securityEdit,
-  securityEditUpdate,
-  destroy,
-  processDestroy,
-} = require("../controllers/userControllers.js");
+const {login, register, processRegister, processLogin, profile, logout, edit, editUpdate, courseList, courseCreate, securityEdit, securityEditUpdate, destroy, processDestroy} = require('../controllers/userControllers.js');
 
 //Subir el archivo usando multer y su disposición como middleware
-const { uploadUser } = require("../../middlewares/multer.js");
-const loggedAuth = require("../../middlewares/loggedAuth.js");
-const guestAuth = require("../../middlewares/guestAuth.js");
+const { uploadUser } = require("../middlewares/multer");
+const loggedAuth = require("../middlewares/loggedAuth.js");
+const guestAuth = require('../middlewares/guestAuth.js')
 //const userLogged = require('../middlewares/userLogged.js')
 const {
-  loginValidator,
-  registerValidator,
-} = require("../../middlewares/validator.js");
-
-router
-  .get("/login", loggedAuth, login) //Redireccionamiento para usuarios ya logueados
-  .post("/login", loginValidator, processLogin)
-
-  .get("/register", loggedAuth, register)
-  .post(
-    "/register",
-    uploadUser.single("avatar"),
+    loginValidator,
     registerValidator,
-    processRegister
-  )
+  } = require("../middlewares/validator.js");
 
-  //Vista de perfil
-  .get("/profile/:id", profile) //Redireccionamiento para visitantes no logueados
+router 
+.get ('/login', loggedAuth, login) //Redireccionamiento para usuarios ya logueados
+.post('/login', loginValidator, processLogin)
 
-  //Actualización del perfil
-  .get("/profile/:id/edit", guestAuth, edit)
-  .put("/profile/:id/edit", uploadUser.single("avatar"), editUpdate)
+.get ('/register', loggedAuth, register)
+.post('/register', uploadUser.single("avatar"), registerValidator, processRegister)
 
-  .get("/profile/:id/edit-security", guestAuth, securityEdit)
-  .put("/profile/:id/edit-security", securityEditUpdate)
+//Vista de perfil
+.get ('/profile/:id', profile) //Redireccionamiento para visitantes no logueados
 
-  //Eliminación del perfil
-  .get("/profile/:id/delete-account", guestAuth, destroy)
+//Actualización del perfil
+.get('/profile/:id/edit', guestAuth, edit)
+.put('/profile/:id/edit', uploadUser.single("avatar") , editUpdate)
 
-  .get("/profile/:id/destroy", processDestroy)
-  .delete("/profile/:id/destroy", processDestroy)
+.get('/profile/:id/edit-security', guestAuth, securityEdit)
+.put('/profile/:id/edit-security', securityEditUpdate)
 
-  //Cursos comprados
-  .get("/profile/:id/my-courses", guestAuth, courseList)
+//Eliminación del perfil
+.get ('/profile/:id/delete-account', guestAuth, destroy)
 
-  //Creación de cursos
-  .get("/profile/:id/create", guestAuth, courseCreate)
-  //Logout process
-  .get("/logout", guestAuth, logout);
+.get('/profile/:id/destroy', processDestroy)
+.delete('/profile/:id/destroy', processDestroy)
+
+//Cursos comprados
+.get ('/profile/:id/my-courses', guestAuth, courseList)
+
+//Creación de cursos
+.get ('/profile/:id/create', guestAuth, courseCreate)
+//Logout process
+.get('/logout', guestAuth, logout)
+
 
 module.exports = router;
