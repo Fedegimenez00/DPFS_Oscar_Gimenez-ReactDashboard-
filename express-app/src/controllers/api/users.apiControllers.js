@@ -2,7 +2,7 @@
 const { raw } = require('mysql2');
 const db = require('../../database/models')
 
-const userController = {
+module.exports =  {
   
   getUsers: async (req, res) => {
     try {
@@ -29,8 +29,8 @@ const userController = {
 */
     //Devuelve el mismo resultado sin hacer un nuevo espacio de memoria con el .map()
     users.forEach(user => {
-      user.urlAvatar = `http:localhost:3000/database/images/users/${users.avatar}`,
-      user.url =  `http:localhost:3000/api/users/${users.id}`
+      user.urlAvatar = `http://localhost:3000/database/images/users/${users.avatar}`,
+      user.url =  `http://localhost:3000/api/users/${users.id}`
 
 
     })
@@ -75,5 +75,3 @@ const userController = {
 
 
 }
-
-module.exports = userController;

@@ -8,6 +8,8 @@ const session = require("express-session");
 const userLogged = require("./middlewares/userLogged");
 const db = require("./database/models");
 
+const cors = require("cors"); //Para Cross origin requests
+
 /*//temporal //
 const sqlite3 = require('sqlite3').verbose();
 const dataBase = new sqlite3.Database(path.resolve(__dirname, '../databaseSQLite/zerotrust_db.sqlite'));
@@ -24,6 +26,7 @@ const adminRouter = require("./routes/admin.routes.js");
 //Api Routes
 const usersApiRouter = require('./routes/api/users.apiRoutes.js');
 const productsApiRouter = require('./routes/api/products.apiRoutes.js');
+const categoriesApiRouter = require('./routes/api/categories.apiRoutes.js')
 
 //const categoriesApiRouter = require('./routes/api/categories.apiRoutes.js');
 
@@ -60,6 +63,12 @@ app.use(express.urlencoded({ extended: false }));
 //Middleware de aplicación el cual se encargue de controlar la posibilidad de usar otros métodos diferentes al GET y al POST, en nuestros formularios
 app.use(methodOverride("_method"));
 
+// Habilitador del Cross origin Requests
+app.use(cors({
+  origin: "http://localhost:5173", // Permite sólo el puerto del frontend
+  //credentials: true, // Dispuesto para sesiones o cookies
+}))
+
 // UserLogged
 app.use(userLogged);
 
@@ -76,6 +85,7 @@ app
   //Rutas de navegación API
   .use('/api/users', usersApiRouter)
   .use('/api/products', productsApiRouter)
+  .use('/api/categories', categoriesApiRouter)
   
 
   .use(function (req, res) {

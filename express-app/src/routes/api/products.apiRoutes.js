@@ -2,16 +2,18 @@ const express = require("express");
 const router = express.Router();
 
 
-const {show, getProducts} = require('../../controllers/api/products.apiControllers');
+const {show, getProducts, lastProduct} = require('../../controllers/api/products.apiControllers');
 
 
 router 
 //Endpoint de productos
-//.get ('/products/', getProducts)
+.get ('/', getProducts)
 
 //Endpoint de detalle de  un producto
 .get ('/detail/:id', show)
-.get ('/', getProducts)
+
+//Endpoint del último producto
+.get('/last-product', lastProduct)
 
 
 
