@@ -7,7 +7,7 @@ const userController = {
   getUsers: async (req, res) => {
     try {
       let users = await db.User.findAll({
-        attributes: { exclude: ["password"],  //Se excluye la propiedad password para que no se muestre
+        attributes: { exclude: ["password", "firstName" , "lastName", "description" , "headline"],  //Se excluye la propiedad password para que no se muestre
      /* include: [
      ['http:localhost:3000/database/images/users/default.png', "urlAvatar"], ["http:localhost:3000/api/users/","url"]
          ],

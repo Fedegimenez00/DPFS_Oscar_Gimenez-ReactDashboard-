@@ -5,12 +5,22 @@ const productController = {
 
     getProducts: async (req, res) => {
     let products = await db.Product.findAll({
-       include: ["categories", "subcategories", "languages", 
-      {association: "users", //Excluye de forma más específica las asociaciones incluidas
-      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
-      }
+       include: [ "languages", 
+      { association: "users", //Excluye de forma más específica las asociaciones incluidas
+      attributes: { exclude: ["password", "createdAt", "updatedAt", "firstName" , "lastName", "description" , "headline",
+        "email", "avatar", "role"
+      ] },
+      },
+      {
+        association: "categories",
+        attributes: { exclude: ["detailBackgroundColor", "fontColor", "description",
+          "icon", "catalogWallpaper"
+        ]}
+      },
+      
     ],
-          attributes: { exclude: ["category_id", "subcategory_id", "language_id", "user_id", 
+          attributes: { exclude: ["category_id", "subcategory_id", "language_id", "user_id", "price", "available",
+            "rating", "reviews", "timesBought", "createdAt", "updatedAt", "deletedAt"
             
           ],
     },
