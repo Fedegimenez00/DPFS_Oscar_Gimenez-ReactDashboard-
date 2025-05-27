@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Catalog } from "../catalog/Catalog";
 import { ProductDetail } from '../productDetail/ProductDetail'
 import { LastProduct } from '../lastProduct/LastProduct'
+import { Categories } from '../categories/Categories'
 import { Counter } from '../counter/Counter'
 import './dashboard.css';
 
@@ -31,7 +32,15 @@ export const Dashboard = () => {
           <LastProduct/>
           </>
         }/>
+
+         <Route path="/categories" element={
+          <>   
+          <Categories/>
+          </>
+        }/>
       </Routes>
+
+      
     
     </div>
   )

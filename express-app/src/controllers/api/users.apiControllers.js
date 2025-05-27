@@ -8,11 +8,7 @@ module.exports =  {
     try {
       let users = await db.User.findAll({
         attributes: { exclude: ["password", "firstName" , "lastName", "description" , "headline"],  //Se excluye la propiedad password para que no se muestre
-     /* include: [
-     ['http:localhost:3000/database/images/users/default.png', "urlAvatar"], ["http:localhost:3000/api/users/","url"]
-         ],
-          //Incluye una nueva propiedad 
-     */
+    
          },
          raw: true,
       }                                        
@@ -29,8 +25,8 @@ module.exports =  {
 */
     //Devuelve el mismo resultado sin hacer un nuevo espacio de memoria con el .map()
     users.forEach(user => {
-      user.urlAvatar = `http://localhost:3000/database/images/users/${users.avatar}`,
-      user.url =  `http://localhost:3000/api/users/${users.id}`
+      user.urlAvatar = `http://localhost:3000/database/images/users/${user.avatar}`,
+      user.url =  `http://localhost:3000/api/users/profile/${user.id}`
 
 
     })

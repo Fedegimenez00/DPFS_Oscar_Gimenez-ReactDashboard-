@@ -40,30 +40,41 @@ module.exports =  {
     })
     }, 
 
-    show: async (req, res) => {
-      try
-      { //Productos de la base de datos de SQL
-      
-        let myProduct = await db.Product.findByPk(req.params.id, {     //Filtra por la id
-          include: ["categories", "subcategories", "languages", 
-      {association: "users", //Excluye de forma más específica las asociaciones incluidas
-      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
-      }
-    ],
-          attributes: { exclude: ["category_id", "subcategory_id", "language_id", "user_id", 
-            
-          ], }
-        });
-
-        
-      //Devuelve el producto en un JSON
-        res.json(myProduct);
-     
-      } catch (error){
-        console.log(error);
-      }
-    
+   show: async (req, res) => {
+  try {
+    let myProduct = await db.Product.findByPk(req.params.id, {
+      include: [
+        "categories",
+        "subcategories",
+        "languages",
+        {
+          association: "users",
+          attributes: { exclude: ["password", "createdAt", "updatedAt"] }
+        }
+      ],
+      attributes: {
+        exclude: [
+          "category_id",
+          "subcategory_id",
+          "language_id",
+          "user_id"
+        ]
       },
+      raw: true,
+      nest: true  // Agrupa de forma ordenada los datos en vez de aplanarlos por el raw
+    });
+
+    myProduct.imageUrl = `http://localhost:3000/database/images/courses/${myProduct.image}`;
+
+    //Devuelve el producto en un JSON
+    res.json(myProduct);
+
+  } catch (error) {
+    console.error(error);
+   
+  }
+},
+
 
     lastProduct: async (req, res) => {
       try
@@ -79,9 +90,12 @@ module.exports =  {
             
           ], },
           order: [ ['id', 'DESC']],
+          raw: true,
+          nest: true
         });
 
-        
+      myProduct.imageUrl = `http://localhost:3000/database/images/courses/${myProduct.image}`;
+      
       //Devuelve el producto en un JSON
         res.json(myProduct);
      
