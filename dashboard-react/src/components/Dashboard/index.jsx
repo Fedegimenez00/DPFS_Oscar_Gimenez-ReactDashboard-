@@ -4,6 +4,7 @@ import { ProductDetail } from '../productDetail/ProductDetail'
 import { LastProduct } from '../lastProduct/LastProduct'
 import { Categories } from '../categories/Categories'
 import { Counter } from '../counter/Counter'
+import { categoriesCatalog } from "../categoriesCatalog/categoriesCatalog"
 import './dashboard.css';
 
 export const Dashboard = () => {
@@ -33,11 +34,19 @@ export const Dashboard = () => {
           </>
         }/>
 
+        <Route path="/categories/3" element={
+          <>   
+          <categoriesCatalog/>
+          </>
+          
+        }/>
          <Route path="/categories" element={
           <>   
           <Categories/>
           </>
+          
         }/>
+        
       </Routes>
 
       

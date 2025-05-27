@@ -10,6 +10,7 @@ export const SideBar = () => {
             <li><Link to="/catalog">Catálogo</Link></li>
             <li><Link to="/last-product">Último Producto</Link></li>
             <li><Link to="/categories">Categorias</Link></li>
+            <li><Link to="/categories/3">Lista</Link></li>
             <li><Link to="/counter">Counter</Link></li>
         </ul>
     </div>
