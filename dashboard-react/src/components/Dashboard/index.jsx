@@ -4,7 +4,9 @@ import { ProductDetail } from '../productDetail/ProductDetail'
 import { LastProduct } from '../lastProduct/LastProduct'
 import { Categories } from '../categories/Categories'
 import { Counter } from '../counter/Counter'
-import { categoriesCatalog } from "../categoriesCatalog/categoriesCatalog"
+import { CategoriesCatalog } from '../categoriesCatalog/CategoriesCatalog'
+
+
 import './dashboard.css';
 
 export const Dashboard = () => {
@@ -34,11 +36,12 @@ export const Dashboard = () => {
           </>
         }/>
 
-        <Route path="/categories/3" element={
+        <Route path="/categories/:id" element={
           <>   
-          <categoriesCatalog/>
+          <CategoriesCatalog/>
           </>
-          
+
+
         }/>
          <Route path="/categories" element={
           <>   
