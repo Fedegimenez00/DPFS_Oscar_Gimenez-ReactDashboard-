@@ -1,0 +1,82 @@
+@import url('../variables.css');
+
+
+.course--card{
+background-color: var(--color-grisOscuro);
+width: 100%;
+max-width: 320px;
+display: flex;
+flex-direction: column;
+margin-top: 10px;
+margin-bottom: 20px;
+border-radius: 20px;
+border: solid var(--color-grisMetalico);
+border-width: 1px;
+}
+
+.course-cardInside{
+    margin-left: 7px
+}
+
+.course--card h3{
+    margin-top: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.course--description{
+    margin-top: 0px;
+}
+.course--card small{
+margin-top:3px;
+margin-bottom: 5px;
+font-weight: 400;
+}
+
+.course--card__photo{
+    width: 100%;
+    height: 140px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: solid var(--color-grisMetalico);
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px;
+    
+}
+
+.course--card__rating{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 2px;
+margin-top: 15px;
+margin-bottom: 5px;
+}
+
+.course--card__rating p{
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+.course--card__price{
+    margin-top: 5px;
+    margin-bottom: 5px;
+font-weight: 550;
+font-size: 1.5rem;
+}
+.course--cardDown{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 6%;
+}
+
+.productList--card__tagTitle{
+    background-color: var(--color-verdeSocialTranslucido);
+   font-size: 0.7rem;
+    border-radius: 5px;
+    padding: 3px;
+}

@@ -5,7 +5,10 @@ const { where } = require('sequelize')
  module.exports =  {
 
     getCategories: async (req, res) => {
-    let categories = await db.Category.findAll({raw: true})
+    let categories = await db.Category.findAll(
+     { 
+      raw: true,
+    })
 
      categories.forEach(cat => {
       cat.iconUrl = `http://localhost:3000/imgs/Icons/${cat.icon}`
@@ -37,7 +40,7 @@ const { where } = require('sequelize')
     }
 
     // Agregar campo URL del wallpaper
-    category.catalogWallpaperUrl = `http://localhost:3000/database/images/wallpapers/${category.catalogWallpaper}`;
+    category.catalogWallpaperUrl = `http://localhost:3000/imgs/wallpapers/categories/${category.catalogWallpaper}`;
 
     // Obtener productos de esa categoría
     let products = await db.Product.findAll({
