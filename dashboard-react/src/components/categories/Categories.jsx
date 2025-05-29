@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import './categories.css'
 
 
 export const Categories = () => {
@@ -20,17 +21,21 @@ export const Categories = () => {
   <ul>
     {categories.map((c, index) => (
         <Link key={c.id} to={`/categories/${c.id}`}>
-      <article key={index} className="categoriesMain--Fundamental">
+      <article key={index} className="categoriesMain--Fundamental"
+      style= {{
+      border: `1px solid ${c?.borderColor}`,
+      background: `${c?.backgroundColor}`,
+    }}>
         <div className="categories--cardDownInside__Inside--fundamental">
 
           <div className="categories--cardInsideFirst">
-            <img src={c.iconUrl} alt="Icono de la categoría" />
+            <img className="categoriesCard--icon" src={c.iconUrl} alt="Icono de la categoría" />
             <div className="categories--cardInsideFirst__down">
               <h4>{c.name}</h4>
             </div>
-            <hr className="subCategories--cardLine" />
           </div>
-
+            <hr className="subCategories--cardLine" />
+            <p className="categoriesDescription">{c.description}</p>
 
         </div>
       </article>

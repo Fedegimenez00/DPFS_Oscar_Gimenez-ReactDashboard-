@@ -3,8 +3,7 @@
 
 .course--card{
 background-color: var(--color-grisOscuro);
-width: 100%;
-max-width: 320px;
+width: 95%;
 display: flex;
 flex-direction: column;
 margin-top: 10px;
@@ -19,14 +18,22 @@ border-width: 1px;
 }
 
 .course--card h3{
-    margin-top: 5px;
+    margin-top: 2px;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0px;
 }
 
+.course--card h4{
+    margin: 0px;
+}
+
+.globeIcon{
+    width: 10px;
+}
 .course--description{
-    margin-top: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 .course--card small{
 margin-top:3px;
@@ -36,14 +43,9 @@ font-weight: 400;
 
 .course--card__photo{
     width: 100%;
-    height: 140px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    border: solid var(--color-grisMetalico);
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 1px;
+    border-bottom: solid var(--color-grisMetalico) 1px;
     
 }
 
@@ -52,7 +54,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 2px;
-margin-top: 15px;
+margin-top: 20px;
 margin-bottom: 5px;
 }
 
@@ -60,6 +62,17 @@ margin-bottom: 5px;
     font-weight: 600;
     font-size: 1.2rem;
     margin-right: 5px;
+}
+
+.course--card__language{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.course--card__language img{
+     width: 15px;
 }
 
 .course--card__price{
@@ -75,7 +88,6 @@ font-size: 1.5rem;
 }
 
 .productList--card__tagTitle{
-    background-color: var(--color-verdeSocialTranslucido);
    font-size: 0.7rem;
     border-radius: 5px;
     padding: 3px;

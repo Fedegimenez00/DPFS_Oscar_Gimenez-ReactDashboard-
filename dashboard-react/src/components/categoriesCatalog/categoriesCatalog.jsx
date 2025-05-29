@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+
 
 export const CategoriesCatalog = () => {
   const { id } = useParams();
@@ -17,41 +19,50 @@ export const CategoriesCatalog = () => {
   }, [id]);
 
   return (
-    <div>
-      {category ? (
-        <>
-          <h3>Catálogo de productos: {category.name}</h3>
-          <img
-            src={category.catalogWallpaperUrl}
-            alt="Fondo de catálogo"
-            style={{ width: "100%", borderRadius: "8px", marginBottom: "1rem" }}
-          />
-        </>
-      ) : (
-        <p>Cargando categoría...</p>
-      )}
+  <div>
+    {category ? (
+      <>
+        <h3>Catálogo de productos: {category.name}</h3>
+        <img
+          src={category.catalogWallpaperUrl}
+          alt="Fondo de catálogo"
+          style={{ width: "100%", borderRadius: "8px", marginBottom: "1rem" }}
+        />
+      </>
+    ) : (
+      <p>Cargando categoría...</p>
+    )}
 
-      {products.length ? (
-        <ul>
-          {products.map((p) => (
-            <li key={p.id}>
-              <a href={`/products/detail/${p.id}`}>
-                <div>
-                  <h4>{p.title}</h4>
-                  <img
-                    src={p.imageUrl}
-                    alt={p.title}
-                    style={{ width: "150px", borderRadius: "8px" }}
-                  />
+    {products.length ? (
+      <ul>
+        {products.map((p) => (
+          <Link key={p.id} to={`/products/detail/${p.id}`}>
+            <article className="cart--bodyCard">
+              <div className="cart--cardInside">
+                <img src={p.imageUrl} alt="imagenDelProducto" />
+                <div className="cart--bodyCard__inside">
+                  <div className="cart--bodyCard__UpperInside">
+                    <div className="bodyCard__titles">
+                      <div className="bodyCard__titlesInside">
+                        <h3>{p.title}</h3>
+                        <p className="bodyCard__author">por {p.users?.name}</p>
+                        <p className="cart--bodyCard__insideDescription">
+                          {p.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No hay productos disponibles.</p>
-      )}
-    </div>
-  );
+              </div>
+            </article>
+          </Link>
+        ))}
+      </ul>
+    ) : (
+      <p>No hay productos disponibles.</p>
+    )}
+  </div>
+);
+
 };
 

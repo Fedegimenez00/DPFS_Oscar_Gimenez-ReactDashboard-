@@ -1,0 +1,55 @@
+@import url('../variables.css');
+
+
+.categoriesMain--Fundamental{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 5px 0px;
+    margin: 20px 10px;
+    width: 95%;
+
+}
+
+.categories--cardDownInside__Inside--fundamental{
+    width: 100%;
+    padding-left: 10px;
+
+}
+
+.categoriesCard--icon{
+    width: 50px;
+}
+
+.categoriesMain--Fundamental h4{
+    font-weight: 500;
+    margin-left: 2px;
+}
+.categories--cardInsideFirst{
+display: flex;
+flex-direction: row;
+align-items: center;
+width: 100%;
+}
+
+.categories--cardInsideFirst__down{
+display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.subCategories--cardLine{
+    display: inline-block;
+    padding: 0px 15px;
+    border-bottom-width: 0px;
+    width: 0px;
+    color: var(--color-blancoApagado);
+}
+
+.categoriesDescription{
+    font-weight: 400;
+    margin: 0px;
+    margin-bottom: 10px;
+}
