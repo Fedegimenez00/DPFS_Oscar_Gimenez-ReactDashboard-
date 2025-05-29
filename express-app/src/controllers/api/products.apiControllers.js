@@ -27,6 +27,10 @@ module.exports =  {
     },
     raw: true,
   })
+  let categories = await db.Category.findAll({
+    attributes: ["id", "name"],
+    raw: true
+  });
 
   products.forEach(prod => {
       prod.imageUrl = `http://localhost:3000/database/images/courses/${prod.image}`,
@@ -34,8 +38,22 @@ module.exports =  {
 
 
     })
+
+  let countByCategory = {};
+  categories.forEach(category => {
+    countByCategory[category.name] = 0;
+  });
+
+  products.forEach(prod => {
+    const categoryName = prod["categories.name"];
+    if (categoryName) {
+      countByCategory[categoryName]++;
+    }
+  });
+
     res.json({
       count: products.length,
+      countByCategory,
       products: products
     })
     }, 

@@ -46,10 +46,13 @@ module.exports =  {
   try {
     const user = await db.User.findByPk(req.params.id,
   {
-    attributes: { exclude: ["password"], } //Se excluye la propiedad password para que no se muestre
+    attributes: { exclude: ["password"], }, //Se excluye la propiedad password para que no se muestre
+    raw: true, 
 
   }
  );
+
+     user.urlAvatar = `http://localhost:3000/database/images/users/${user.avatar}`;
  res.json(user)
 
   } catch (error) {
