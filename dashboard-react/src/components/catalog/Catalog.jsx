@@ -16,9 +16,9 @@ export const Catalog = () => {
     
   return (
     <div>
-        <h3>Catálogo de productos</h3>
+        <h3 className="section-title">Catálogo de Productos</h3>
     {products ? (
-        <ul>
+        <ul className='ulCatalog'>
             {products.map(p => (
               <Link key={p.id} to={`/products/detail/${p.id}`}>
           <article className="cart--bodyCard">

@@ -17,7 +17,7 @@ export const ProductDetail = () => {
         
     return (
         <div>
-        <h3>Catálogo de productos</h3>
+        <h3 className="section-title">Detalle de Producto</h3>
     {product ? ( <Product product = {product}/>
     ) : 
        ( <p>Cargando...</p> )

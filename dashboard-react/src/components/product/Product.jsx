@@ -1,6 +1,7 @@
 import './product.css'
 import ReactDOM from 'react-dom'
-import globe from '../../assets/globe.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 export const Product = ({ product }) => {
   return (
@@ -19,7 +20,9 @@ export const Product = ({ product }) => {
       
       <div className="course--card__rating">
 
-        <div className='course--card__language'> <img className='globeIcon' src={globe} alt="globeIcon" /><span> {product.languages.name}</span></div>
+        <div className='course--card__language'>
+        <FontAwesomeIcon icon={faGlobe} />
+        <span> {product.languages.name}</span></div>
       </div>
         <span className='productList--card__tagTitle' style= {{
       border: `1px solid ${product.categories?.borderColor}`,

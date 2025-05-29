@@ -1,0 +1,8 @@
+.categoriesWallpaper{
+    width: 100%;
+    max-height: 175px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}

@@ -16,7 +16,7 @@ export const Categories = () => {
     
   return (
   <div>
-    <h3>Listado de Categorías</h3>
+    <h3 className="section-title">Listado de Categorías</h3>
   {categories ? (
   <ul>
     {categories.map((c, index) => (

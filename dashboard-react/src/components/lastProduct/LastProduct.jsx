@@ -16,7 +16,7 @@ export const LastProduct = () => {
         
     return (
         <div>
-        <h3>Último Producto Agregado</h3>
+        <h3 className="section-title">Último Producto Agregado</h3>
     {product ? ( <Product product = {product}/>
     ) : 
        ( <p>Cargando...</p> )

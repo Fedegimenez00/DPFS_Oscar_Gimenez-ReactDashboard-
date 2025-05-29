@@ -1,0 +1,68 @@
+@import url('../variables.css');
+
+/* Contenedor general */
+.users-container {
+}
+
+/* Grid de usuarios */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-left: 10px;
+}
+
+/* Tarjeta de usuario */
+.user-card {
+  background-color: var(--color-grisOscuro);
+    border: 1px solid var(--color-grisMetalico);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    height: 75px;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.user-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  border-color: #4b5563;
+}
+
+/* Imagen del usuario */
+.user-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4b5563;
+}
+
+/* Información del usuario */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+  line-break: anywhere;
+}
+
+/* Mensaje de carga */
+.loading-message {
+  font-size: 1rem;
+  color: #9ca3af;
+}

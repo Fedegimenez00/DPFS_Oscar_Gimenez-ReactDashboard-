@@ -11,6 +11,7 @@ margin-bottom: 20px;
 border-radius: 20px;
 border: solid var(--color-grisMetalico);
 border-width: 1px;
+justify-self: center;
 }
 
 .course-cardInside{

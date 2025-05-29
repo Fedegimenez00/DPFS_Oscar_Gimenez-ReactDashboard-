@@ -1,5 +1,15 @@
 @import url('../variables.css');
 
+.ulCatalog{
+  padding-left: 10px;
+    margin-left: 10px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    border: solid 1px var(--color-grisMetalico);
+}
+
 .cart--bodyCard {
   display: flex;
   gap: 5px;

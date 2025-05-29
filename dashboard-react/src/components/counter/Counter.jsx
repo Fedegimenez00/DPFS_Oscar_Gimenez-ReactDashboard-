@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import './counter.css'
 
 export const Counter = () => {
     const [products, setProducts] = useState([]);
@@ -25,14 +25,25 @@ export const Counter = () => {
     {products && categories ? (
         <>
      <div>
-     <h4>Items totales</h4>
-        <ul>
-            <li>Productos: {products.count}</li>
-            <li>Usuarios: {users.count}</li>
-            <li>Categorias: {categories.count}</li>
-        </ul> 
+     <h3 className="section-title">Elementos Totales</h3>
+        <div className="stats-container">
+  <div className="stat-card">
+    <h4>Productos</h4>
+    <p>{products.count}</p>
+  </div>
+  <div className="stat-card">
+    <h4>Usuarios</h4>
+    <p>{users.count}</p>
+  </div>
+  <div className="stat-card">
+    <h4>Categorías</h4>
+    <p>{categories.count}</p>
+  </div>
+</div>
          
      </div>
+     
+
         
         
         </>

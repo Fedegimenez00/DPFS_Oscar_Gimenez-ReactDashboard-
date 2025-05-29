@@ -5,6 +5,9 @@ import { LastProduct } from '../lastProduct/LastProduct'
 import { Categories } from '../categories/Categories'
 import { Counter } from '../counter/Counter'
 import { CategoriesCatalog } from '../categoriesCatalog/CategoriesCatalog'
+import { Users } from '../users/Users'
+import { UserProfile } from '../userProfile/UserProfile'
+
 
 
 import './dashboard.css';
@@ -48,6 +51,19 @@ export const Dashboard = () => {
           <Categories/>
           </>
           
+        }/>
+
+         <Route path="/users" element={
+          <>   
+          <Users/>
+          </>
+          
+        }/>
+
+        <Route path="/users/profile/:id" element={
+          <>   
+          <UserProfile/>
+          </>
         }/>
         
       </Routes>
