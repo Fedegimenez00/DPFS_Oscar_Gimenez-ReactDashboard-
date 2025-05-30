@@ -22,7 +22,6 @@
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
-  height: 140px;
   border: 1px solid var(--color-grisMetalico);
 }
 
