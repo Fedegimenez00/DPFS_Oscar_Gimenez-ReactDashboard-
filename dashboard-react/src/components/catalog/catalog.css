@@ -1,71 +1,88 @@
 @import url('../variables.css');
 
-.ulCatalog{
-  padding-left: 10px;
-    margin-left: 10px;
-    padding-bottom: 30px;
-    padding-top: 10px;
-    padding-right: 5px;
-    border-radius: 10px;
-    border: solid 1px var(--color-grisMetalico);
+.ulCatalog {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-grisMetalico);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 10px;
+}
+
+.catalog--link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .catalog--courseCard {
   display: flex;
-  gap: 5px;
-  border-top: solid var(--color-blancoApagado) 1px;
+  flex-direction: column;
+  background-color: var(--color-grisOscuro);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  height: 140px;
+  border: 1px solid var(--color-grisMetalico);
 }
 
-.catalog--courseCardInside{
-  margin-top: 10px;
+.catalog--courseCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.catalog--courseCardInside {
   display: flex;
-  gap: 5px;
-  align-items: flex-start;
+  gap: 16px;
+  padding: 12px;
 }
 
 .catalog--courseCardInside img {
- width: 120px;
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--color-grisMetalicoClaro);
 }
 
 .bodyCard__inside {
-  width: 100%;
-}
-
-.bodyCard__inside h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin: 0px;
-}
-
-.bodyCard__insideDescription{
-    margin: 0px;
-    margin-top: 4px;
-    margin-bottom: 7px;
-    font-weight: 400;
-    font-size: 0.9rem;
-}
-
-.bodyCard__author{
-    font-size: 0.8rem;
-     margin: 0px;
-}
-
-.bodyCard__UpperInside {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
 }
 
-
-.productList--card__tagTitle{
-    font-size: 0.7rem;
-    border-radius: 5px;
-    padding: 3px;
-}
-/* Resoluciones de 1025 */
 .bodyCard__titles {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 
+.bodyCard__titles h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-blancoApagado);
+}
+
+.bodyCard__author {
+  font-size: 0.85rem;
+  margin-top: 4px;
+  color: var(--color-grisClaro);
+}
+
+.bodyCard__insideDescription {
+  font-size: 0.9rem;
+  margin-top: 6px;
+  color: var(--color-grisClaro);
+}
+
+.productList--card__tagTitle {
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--color-blancoApagado);
+}

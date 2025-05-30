@@ -22,10 +22,10 @@ export const Counter = () => {
     
   return (
     <div>
+    <h3 className="section-title">Elementos Totales</h3>
     {products && categories ? (
         <>
      <div>
-     <h3 className="section-title">Elementos Totales</h3>
         <div className="stats-container">
   <div className="stat-card">
     <h4>Productos</h4>
@@ -48,7 +48,7 @@ export const Counter = () => {
         
         </>
      ):( 
-        <p>Cargando...</p>
+        <p className='loading-message'>Cargando contador...</p>
    )}
     </div>
   )

@@ -8,9 +8,23 @@
     border-radius: 15px;
     padding: 5px 0px;
     margin: 20px 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     width: 95%;
 
 }
+
+.categoriesCard__link {
+  text-decoration: none;
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.categoriesCard__link:hover .categoriesCard {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
 
 .categories--cardDownInside__container{
     width: 100%;

@@ -20,7 +20,7 @@ export const ProductDetail = () => {
         <h3 className="section-title">Detalle de Producto</h3>
     {product ? ( <Product product = {product}/>
     ) : 
-       ( <p>Cargando...</p> )
+       ( <p className='loading-message'>Cargando detalle del curso...</p> )
    }
     </div>
   )

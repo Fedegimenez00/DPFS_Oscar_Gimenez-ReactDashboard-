@@ -13,11 +13,11 @@ export const UserProfile = () => {
       .catch((e) => console.error(e));
   }, [id]);
 
-  if (!user) return <p className="loading-message">Cargando detalles del usuario...</p>;
 
   return (
     <div>
      <h3 className="section-title">Perfil de Usuario</h3>
+     {user ? ( 
     <div className="user-detail-container">
       <article className="user-detail-card">
         <img
@@ -38,6 +38,9 @@ export const UserProfile = () => {
         </div>
       </article>
     </div>
+     ) : 
+     (<p className="loading-message">Cargando perfil del usuario...</p>) 
+     }
     </div>
   );
 };

@@ -19,7 +19,7 @@ export const LastProduct = () => {
         <h3 className="section-title">Último Producto Agregado</h3>
     {product ? ( <Product product = {product}/>
     ) : 
-       ( <p>Cargando...</p> )
+       ( <p className='loading-message'>Cargando último curso...</p> )
    }
     </div>
   )

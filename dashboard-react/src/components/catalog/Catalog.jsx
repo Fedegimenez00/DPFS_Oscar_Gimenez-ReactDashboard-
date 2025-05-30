@@ -17,25 +17,25 @@ export const Catalog = () => {
   return (
     <div>
         <h3 className="section-title">Catálogo de Productos</h3>
-    {products ? (
+    {products.length ? (
         <ul className='ulCatalog'>
-            {products.map(p => (
-              <Link key={p.id} to={`/products/detail/${p.id}`}>
+            {products.map((product) => (
+              <Link key={product.id} to={`/products/detail/${product.id}`}>
           <article className="catalog--courseCard">
           <div class="catalog--courseCardInside">
-           <img src={p.imageUrl} alt="imagenDelProducto" />
+           <img src={product.imageUrl} alt="imagenDelProducto" />
   <div class="bodyCard__inside">
             <div class="bodyCard__UpperInside">
             <div class="bodyCard__titles">
                 <div class="bodyCard__titlesInside">
-            <h3>{p.title}</h3>
-                        <p className='bodyCard__author'>por {p["users.name"]}</p>
+            <h3>{product.title}</h3>
+                        <p className='bodyCard__author'>por {product["users.name"]}</p>
 
-            <p className='bodyCard__insideDescription'>{p.description}</p>
+            <p className='bodyCard__insideDescription'>{product.description}</p>
             <span className='productList--card__tagTitle' style= {{
-      border: `1px solid ${p["categories.borderColor"]}`,
-      backgroundColor: `${p["categories.backgroundColor"]}`,
-    }}>{p["categories.name"]}</span>
+      border: `1px solid ${product["categories.borderColor"]}`,
+      backgroundColor: `${product["categories.backgroundColor"]}`,
+    }}>{product["categories.name"]}</span>
             
         </div>
         
@@ -50,7 +50,7 @@ export const Catalog = () => {
            </Link> ))}
         </ul> 
      ):( 
-        <p>Cargando...</p>
+      <p className="loading-message">Cargando cursos...</p>
    )}
     </div>
   )
