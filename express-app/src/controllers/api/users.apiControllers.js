@@ -7,7 +7,7 @@ module.exports =  {
   getUsers: async (req, res) => {
     try {
       let users = await db.User.findAll({
-        attributes: { exclude: ["password", "firstName" , "lastName", "description" , "headline"],  //Se excluye la propiedad password para que no se muestre
+        attributes: { exclude: ["password", "firstName" , "lastName", "description" , "headline", "role"],  //Se excluye la propiedad password para que no se muestre
     
          },
          raw: true,
@@ -46,7 +46,7 @@ module.exports =  {
   try {
     const user = await db.User.findByPk(req.params.id,
   {
-    attributes: { exclude: ["password"], }, //Se excluye la propiedad password para que no se muestre
+    attributes: { exclude: ["password", "role"], }, //Se excluye la propiedad password para que no se muestre
     raw: true, 
 
   }

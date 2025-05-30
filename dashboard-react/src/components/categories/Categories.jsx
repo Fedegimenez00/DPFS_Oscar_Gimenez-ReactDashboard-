@@ -21,12 +21,12 @@ export const Categories = () => {
   <ul>
     {categories.map((c, index) => (
         <Link key={c.id} to={`/categories/${c.id}`}>
-      <article key={index} className="categoriesMain--Fundamental"
+      <article key={index} className="categoriesCard"
       style= {{
       border: `1px solid ${c?.borderColor}`,
       background: `${c?.backgroundColor}`,
     }}>
-        <div className="categories--cardDownInside__Inside--fundamental">
+        <div className="categories--cardDownInside__container">
 
           <div className="categories--cardInsideFirst">
             <img className="categoriesCard--icon" src={c.iconUrl} alt="Icono de la categoría" />

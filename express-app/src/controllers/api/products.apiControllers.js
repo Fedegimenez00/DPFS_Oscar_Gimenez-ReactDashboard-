@@ -62,20 +62,35 @@ module.exports =  {
   try {
     let myProduct = await db.Product.findByPk(req.params.id, {
       include: [
-        "categories",
-        "subcategories",
-        "languages",
-        {
+         {
           association: "users",
-          attributes: { exclude: ["password", "createdAt", "updatedAt"] }
-        }
+          attributes: { exclude: ["password", "createdAt", "updatedAt", 'email',
+            'avatar', 'role', 'description', 'firstName', 'lastName', 'headline'
+          ] }
+        },
+         {
+          association: "categories",
+          attributes: { exclude: ["description", "icon", "catalogWallpaper", "detailBackgroundColor",
+            "fontColor"
+          ] }
+        },
+        {
+          association: "subcategories",
+          attributes: { exclude: ['description', 'category_id']}
+        },
+        "languages",
+       
       ],
       attributes: {
         exclude: [
           "category_id",
           "subcategory_id",
           "language_id",
-          "user_id"
+          "user_id",
+          'available',
+          'rating',
+          'reviews',
+          'timesBought'
         ]
       },
       raw: true,
@@ -99,14 +114,38 @@ module.exports =  {
       { //Productos de la base de datos de SQL
       
         let myProduct = await db.Product.findOne({     //Filtra por la id
-          include: ["categories", "subcategories", "languages", 
-      {association: "users", //Excluye de forma más específica las asociaciones incluidas
-      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
-      }
-    ],
-          attributes: { exclude: ["category_id", "subcategory_id", "language_id", "user_id", 
-            
-          ], },
+          include: [
+         {
+          association: "users",
+          attributes: { exclude: ["password", "createdAt", "updatedAt", 'email',
+            'avatar', 'role', 'description', 'firstName', 'lastName', 'headline'
+          ] }
+        },
+         {
+          association: "categories",
+          attributes: { exclude: ["description", "icon", "catalogWallpaper", "detailBackgroundColor",
+            "fontColor"
+          ] }
+        },
+        {
+          association: "subcategories",
+          attributes: { exclude: ['description', 'category_id']}
+        },
+        "languages",
+       
+      ],
+      attributes: {
+        exclude: [
+          "category_id",
+          "subcategory_id",
+          "language_id",
+          "user_id",
+          'available',
+          'rating',
+          'reviews',
+          'timesBought'
+        ]
+      },
           order: [ ['id', 'DESC']],
           raw: true,
           nest: true

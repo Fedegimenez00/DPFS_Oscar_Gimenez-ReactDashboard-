@@ -39,16 +39,16 @@ export const CategoriesCatalog = () => {
       <ul className="ulCatalog">
         {products.map((p) => (
           <Link key={p.id} to={`/products/detail/${p.id}`}>
-            <article className="cart--bodyCard">
-              <div className="cart--cardInside">
+            <article className="catalog--courseCard">
+              <div className="catalog--courseCardInside">
                 <img  src={p.imageUrl} alt="imagenDelProducto" />
-                <div className="cart--bodyCard__inside">
-                  <div className="cart--bodyCard__UpperInside">
+                <div className="bodyCard__inside">
+                  <div className="bodyCard__UpperInside">
                     <div className="bodyCard__titles">
                       <div className="bodyCard__titlesInside">
                         <h3>{p.title}</h3>
                         <p className="bodyCard__author">por {p.users?.name}</p>
-                        <p className="cart--bodyCard__insideDescription">
+                        <p className="bodyCard__insideDescription">
                           {p.description}
                         </p>
                       </div>

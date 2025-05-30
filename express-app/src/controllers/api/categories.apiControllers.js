@@ -6,12 +6,13 @@ const { where } = require('sequelize')
 
     getCategories: async (req, res) => {
     let categories = await db.Category.findAll(
-     { 
+     { attributes: { exclude: ["fontColor", "catalogWallpaper", "detailBackgroundColor"]},
       raw: true,
     })
 
      categories.forEach(cat => {
       cat.iconUrl = `http://localhost:3000/imgs/Icons/${cat.icon}`
+      cat.url = `http://localhost:3000/api/categories/${cat.id}`
 
 
     })
@@ -30,7 +31,9 @@ const { where } = require('sequelize')
     // Obtener categoría aparte
     const category = await db.Category.findByPk(categoryId, {
       attributes: {
-        exclude: ["icon", "description"], // Excluí lo que quieras
+        exclude: ["icon", "description", "fontColor", "detailBackgroundColor",
+          "backgroundColor", "borderColor"
+        ], //Propiedades de la categoría principal
       },
       raw: true,
     });
@@ -41,7 +44,7 @@ const { where } = require('sequelize')
 
     // Agregar campo URL del wallpaper
     category.catalogWallpaperUrl = `http://localhost:3000/imgs/wallpapers/categories/${category.catalogWallpaper}`;
-
+    
     // Obtener productos de esa categoría
     let products = await db.Product.findAll({
       where: { category_id: categoryId },
@@ -65,9 +68,12 @@ const { where } = require('sequelize')
           },
         },
         {
-          association: "categories",
+          association: "categories", //Propiedad categoría proveniente de un producto
           attributes: {
-            exclude: ["description", "icon"],
+            exclude: ["description", "icon", "backgroundColor",
+              'detailBackgroundColor', 'borderColor', "fontColor",
+              "catalogWallpaper",
+            ],
           },
         },
       ],

@@ -1,7 +1,7 @@
 @import url('../variables.css');
 
 
-.categoriesMain--Fundamental{
+.categoriesCard{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -12,7 +12,7 @@
 
 }
 
-.categories--cardDownInside__Inside--fundamental{
+.categories--cardDownInside__container{
     width: 100%;
     padding-left: 10px;
 
@@ -22,7 +22,7 @@
     width: 50px;
 }
 
-.categoriesMain--Fundamental h4{
+.categoriesCard h4{
     font-weight: 500;
     margin-left: 2px;
 }

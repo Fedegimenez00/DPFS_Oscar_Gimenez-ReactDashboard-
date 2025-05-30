@@ -10,34 +10,34 @@
     border: solid 1px var(--color-grisMetalico);
 }
 
-.cart--bodyCard {
+.catalog--courseCard {
   display: flex;
   gap: 5px;
   border-top: solid var(--color-blancoApagado) 1px;
 }
 
-.cart--cardInside {
+.catalog--courseCardInside{
   margin-top: 10px;
   display: flex;
   gap: 5px;
   align-items: flex-start;
 }
 
-.cart--bodyCard img {
+.catalog--courseCardInside img {
  width: 120px;
 }
 
-.cart--bodyCard__inside {
+.bodyCard__inside {
   width: 100%;
 }
 
-.cart--bodyCard__inside h3 {
+.bodyCard__inside h3 {
   font-size: 1.2rem;
   font-weight: 500;
   margin: 0px;
 }
 
-.cart--bodyCard__insideDescription{
+.bodyCard__insideDescription{
     margin: 0px;
     margin-top: 4px;
     margin-bottom: 7px;
@@ -50,7 +50,7 @@
      margin: 0px;
 }
 
-.cart--bodyCard__UpperInside {
+.bodyCard__UpperInside {
   display: flex;
   justify-content: space-between;
   gap: 30px;
