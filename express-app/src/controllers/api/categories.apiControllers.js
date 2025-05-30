@@ -99,7 +99,7 @@ const { where } = require('sequelize')
 
     products.forEach((prod) => {
       prod.imageUrl = `http://localhost:3000/database/images/courses/${prod.image}`;
-      prod.url = `http://localhost:3000/api/products/${prod.id}`;
+      prod.url = `http://localhost:3000/api/products/detail/${prod.id}`;
     });
 
     // Respuesta final
