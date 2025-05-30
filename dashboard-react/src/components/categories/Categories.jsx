@@ -18,7 +18,7 @@ export const Categories = () => {
   <div>
     <h3 className="section-title">Listado de Categorías</h3>
     <ul className="categoriesList">
-      {categories && categories.length > 0 ? (
+      {categories.length > 0 ? (
         categories.map((category) => (
           <div key={category.id} className="categoriesCard__item">
             <Link className="categoriesCard__link" to={`/categories/${category.id}`}>

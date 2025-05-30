@@ -23,7 +23,7 @@ export const Counter = () => {
   return (
     <div>
     <h3 className="section-title">Elementos Totales</h3>
-    {products && categories ? (
+    {products && categories && users ? (
         <>
      <div>
         <div className="stats-container">
